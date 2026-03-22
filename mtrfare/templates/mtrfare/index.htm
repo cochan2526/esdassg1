@@ -7,6 +7,10 @@
         </head>
     <body>
         <h1> MTR Hong Kong fare search </h1>
+        <p> Hello {{ username }} ! </p>
+        <p><a href = "logoff"> Logoff </a></p>
+        <p><a href = "logon"> Logon </a></p>
+        <p><a href = "register"> Register </a></p>
         {% if messages %}
             <div class="alert alert-primary" role="alert">
                 {% for message in messages %}

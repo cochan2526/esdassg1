@@ -1,15 +1,22 @@
 from django.contrib import messages
+from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 
 #
 #    Register User to system
 #    Input : The Post Request from register form
-#    Return : True if success, False if username already exists
+#    Return : True if success,
+#             False if username already exists / register failed
 #
 def registering_user ( request ) :
 
     username = request.POST.get ( "username" , "" ).strip ( ) # default value = ""
     password = request.POST.get ( "password" , "" ).strip ( )
+
+    if ( username.lower == "guest" ) :
+        # Display an information message for invalid username
+        messages.info(request, "Invalid username!")
+        return ( False )
 
     # Check if a user with the provided username already exists
     user = User.objects.filter( username = username )
@@ -30,4 +37,31 @@ def registering_user ( request ) :
     messages.info(request, "Account created Successfully!")
 
     return ( True )
+
+#
+#    Log User onto the system
+#    Input : The Post Request from logon form
+#    Return : True if success,
+#             False if logon failed
+#
+def logging_on_user ( request ) :
+
+    username = request.POST.get ( "username" , "" ).strip ( ) # default value = ""
+    password = request.POST.get ( "password" , "" ).strip ( )
+
+    # Check if a user with the provided username exists
+    if not User.objects.filter(username=username).exists():
+        # Display an error message if the username does not exist
+        messages.error( request, "Invalid Username" )
+        return ( False )
+        
+    user = authenticate ( username = username , password = password )
+        
+    if user is None:
+        # Display an error message if authentication fails (invalid password)
+        messages.error ( request , "Invalid Password" )
+        return ( False )
+    else:
+        login ( request , user )
+        return ( True )
 

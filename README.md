@@ -4,7 +4,9 @@
 ## provided by MTR Corporation Limited of Hong Kong
 
 ## user authentication System using django
-## refer to https://www.geeksforgeeks.org/python/user-authentication-system-using-django/
+On 2026-03-22
+referencing https://www.geeksforgeeks.org/python/user-authentication-system-using-django/
+logout referencing https://docs.djangoproject.com/en/6.0/topics/auth/default/
 
 ### helper.py
 sub functions used in views.py
