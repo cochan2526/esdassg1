@@ -1,0 +1,42 @@
+<! DOCTYPE html >
+<html lang ="en">
+    <head>
+        <meta charset ="utf-8">
+        <meta name ="viewport" content ="width=device-width , initial-scale=1">
+        <title> MTR Hong Kong Fare </title>
+        </head>
+    <body>
+        <h1> MTR Hong Kong fare search </h1>
+{% comment %}
+<!--
+        <p>Enter a temperature in Celsius and generate a short story .</p>
+        <form method ="get" action ="{% url "story_page" %}">
+            <label for ="temp"> Temperature in Celsius </label>
+            <input id="temp" name ="temp" value ="{{ temp }}" placeholder ="e.g. 12">
+            <button type ="submit">Make story </button>
+        </form>
+        {% if error %}
+        <p>{{ error }}</p>
+        {% endif %}
+        {% if story %}
+        <h2> Generated story </h2>
+        <p>{{ story }}</p>
+        <form method ="post" action ="{% url 'save_story' %}">
+            {% csrf_token %}
+            <input type =" hidden" name ="temp" value ="{{ temp }}">
+            <button type ="submit">Save story </button>
+        </form>
+        {% endif %}
+        <h2> Saved stories </h2>
+        <ul>
+            {% for entry in stories %}
+                <li> {{ entry.temperature }}C: {{ entry.story }}</li>
+                {% empty %}
+                <li> no saved story yet </li>
+            {% endfor %}
+        </ul>
+-->
+{% endcomment %}
+    </body>
+</html>
+
