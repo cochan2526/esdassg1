@@ -8,7 +8,7 @@
     <body>
         <h1> MTR Hong Kong fare search </h1>
         <h2> Register page </h2>
-        <form method ="post" action ="{% url 'registering' %}">
+        <form method ="post" action ="{% url 'logginOn' %}">
             {% csrf_token %}
             <p> username : <input name ="username" value ="{{ username }}"> </p>
             <p> password : <input type = "password" name ="password" value ="{{ password }}"> </p>

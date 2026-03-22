@@ -1,4 +1,7 @@
 from django.shortcuts import render , redirect
+
+from .helper import registering_user
+
 # from .models import StoryEntry
 
 # Create your views here.
@@ -14,8 +17,9 @@ def registering ( request ) :
     if request.method != "POST":
         return ( redirect ("register") )
 
-    username = request.POST.get ( "username" , "" ).strip ( )
-    password = request.POST.get ( "password" , "" ).strip ( )
+    if ( registering_user ( request ) ) :
+        return ( render ( request , "mtrfare/index.htm" ) )
+    else :
+        return ( redirect ("register") )
 
-    return ( render ( request , "mtrfare/index.htm" ) )
 
