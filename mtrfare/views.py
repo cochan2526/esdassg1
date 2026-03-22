@@ -2,8 +2,6 @@ from django.shortcuts import render , redirect
 
 from .helper import registering_user
 
-# from .models import StoryEntry
-
 # Create your views here.
 
 def homepage ( request ) :

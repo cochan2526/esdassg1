@@ -6,7 +6,9 @@
 ## user authentication System using django
 ## refer to https://www.geeksforgeeks.org/python/user-authentication-system-using-django/
 
-
+### helper.py
+sub functions used in views.py
+to make views.py more clear and easy to read
 
 
 
