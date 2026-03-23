@@ -26,7 +26,6 @@ def registering ( request ) :
         return ( redirect ("register") )
 
 def logon ( request ) :
-    print ( "logon!" )
     return ( render ( request , "mtrfare/logon.htm" ) )
 
 def logging_on ( request ) :
