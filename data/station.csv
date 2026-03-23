@@ -1,0 +1,29 @@
+Line Code,Direction,Station Code,Station ID,Chinese Name,English Name,Sequence
+KTL,DT,KWT,15,觀塘,Kwun Tong,4
+KTL,DT,NTK,14,牛頭角,Ngau Tau Kok,5
+KTL,DT,KOB,13,九龍灣,Kowloon Bay,6
+KTL,DT,CHH,12,彩虹,Choi Hung,7
+KTL,DT,DIH,11,鑽石山,Diamond Hill,8
+KTL,DT,WTS,10,黃大仙,Wong Tai Sin,9
+KTL,DT,LOF,9,樂富,Lok Fu,10
+KTL,DT,KOT,8,九龍塘,Kowloon Tong,11
+KTL,DT,SKM,7,石硤尾,Shek Kip Mei,12
+KTL,DT,PRE,16,太子,Prince Edward,10
+KTL,DT,MOK,6,旺角,Mong Kok,11
+KTL,DT,YMT,5,油麻地,Yau Ma Tei,12
+TWL,DT,TSW,25,荃灣,Tsuen Wan,1
+TWL,DT,TWH,24,大窩口,Tai Wo Hau,2
+TWL,DT,KWH,23,葵興,Kwai Hing,3
+TWL,DT,KWF,22,葵芳,Kwai Fong,4
+TWL,DT,LAK,21,茘景,Lai King,5
+TWL,DT,MEF,20,美孚,Mei Foo,6
+TWL,DT,LCK,19,茘枝角,Lai Chi Kok,7
+TWL,DT,CSW,18,長沙灣,Cheung Sha Wan,8
+TWL,DT,SSP,17,深水埗,Sham Shui Po,9
+TWL,DT,PRE,16,太子,Prince Edward,10
+TWL,DT,MOK,6,旺角,Mong Kok,11
+TWL,DT,YMT,5,油麻地,Yau Ma Tei,12
+TWL,DT,JOR,4,佐敦,Jordan,13
+TWL,DT,TST,3,尖沙咀,Tsim Sha Tsui,14
+TWL,DT,ADM,2,金鐘,Admiralty,15
+TWL,DT,CEN,1,中環,Central,16
