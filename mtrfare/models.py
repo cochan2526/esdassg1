@@ -21,10 +21,10 @@ class BarrCat ( models.Model ) :
 # "Station_No","Key","Value","AJTextEn","AJTextZh","Exit_Coordinate_X_Y"
 class BarrFac ( models.Model ) :
 
-    Station_No = models.ForeignKey (
+    Station = models.ForeignKey (
           Station , on_delete = models.CASCADE, related_name = "Station_ID"
           )
-    Key = models.ForeignKey (
+    BarrCat = models.ForeignKey (
           BarrCat , on_delete = models.CASCADE, related_name = "Item_Code"
           )
     Value = models.BooleanField ( )
@@ -57,17 +57,11 @@ class Station ( models.Model ) :
 #
 # SRC_STATION_NAME,SRC_STATION_ID,DEST_STATION_NAME,DEST_STATION_ID,OCT_ADT_FARE,OCT_STD_FARE,OCT_JOYYOU_SIXTY_FARE,SINGLE_ADT_FARE,OCT_CON_CHILD_FARE,OCT_CON_ELDERLY_FARE,OCT_CON_PWD_FARE,SINGLE_CON_CHILD_FARE,SINGLE_CON_ELDERLY_FARE
 class Fare ( models.Model ) :
-    Source_Station_Name = models.ForeignKey (
+    Source_Station = models.ForeignKey (
           Station , on_delete = models.CASCADE, related_name = "English_Name"
           )
-    Source_Station_ID = models.ForeignKey (
-          Station , on_delete = models.CASCADE, related_name = "Station_ID"
-          )
-    Destination_Station_Name = models.ForeignKey (
+    Destination_Station = models.ForeignKey (
           Station , on_delete = models.CASCADE, related_name = "English_Name"
-          )
-    Destination_Station_ID = models.ForeignKey (
-          Station , on_delete = models.CASCADE, related_name = "Station_ID"
           )
     Octopus_Card_Adult = models.DecimalField(max_digits=6, decimal_places=2)
     Octopus_Card_Student = models.DecimalField(max_digits=6, decimal_places=2)
