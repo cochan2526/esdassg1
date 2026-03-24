@@ -1,4 +1,4 @@
-Station_No,Key,Value,AJTextEn,AJTextZh,Exit_Coordinate_X_Y
+"Station_No","Key","Value","AJTextEn","AJTextZh","Exit_Coordinate_X_Y"
 "25","AJ1","True","Exits A & D","A 和 D 出口",""
 "25","AJ4","True","Exits A & C","A 和 C 出口",""
 "25","AJ8","True","","",""

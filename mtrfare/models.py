@@ -7,30 +7,14 @@ from django.db import models
 #
 # ﻿"Item_Code","Category_Id","Category_En","Category_Zh","Facility_En","Facility_Zh","Sorting_Order"
 class BarrCat ( models.Model ) :
-    Item_Code = models.CharField( max_length = 10 , unique = True )
+#     Item_Code = models.CharField( max_length = 10 , unique = True )
+    Item_Code = models.CharField( max_length = 10 , primary_key = True )
     Category_Id = models.CharField ( max_length = 10 )
     Category_En = models.TextField ( )
     Category_Zh = models.TextField ( )
     Facility_En = models.TextField ( )
     Facility_Zh = models.TextField ( )
     Sorting_Order = models.IntegerField ( )
-
-#
-#    Class Barrier Free Facility
-#
-# "Station_No","Key","Value","AJTextEn","AJTextZh","Exit_Coordinate_X_Y"
-class BarrFac ( models.Model ) :
-
-    Station_No = models.ForeignKey (
-          Station , on_delete = models.CASCADE, related_name = "Station_ID"
-          )
-    Key = models.ForeignKey (
-          BarrCat , on_delete = models.CASCADE, related_name = "Item_Code"
-          )
-    Value = models.BooleanField ( )
-    AJTextEn = models.TextField ( blank = True )
-    AJTextZh = models.TextField ( blank = True )
-    Exit_Coordinate_X_Y = models.TextField ( blank = True )
 
 #
 #    Class MTR Lines And Stations
@@ -40,10 +24,29 @@ class Station ( models.Model ) :
     Line_Code = models.CharField ( max_length = 3 )
     Direction = models.CharField ( max_length = 10 )
     Station_Code = models.CharField ( max_length = 3 )
-    Station_ID = models.IntegerField ( unique = True )
+#     Station_ID = models.IntegerField ( unique = True )
+    Station_ID = models.IntegerField ( primary_key = True )
     Chinese_Name = models.TextField ( )
     English_Name = models.TextField ( )
     Sequence = models.IntegerField ( )
+
+#
+#    Class Barrier Free Facility
+#
+# "Station_No","Key","Value","AJTextEn","AJTextZh","Exit_Coordinate_X_Y"
+class BarrFac ( models.Model ) :
+
+    Station_No = models.ForeignKey (
+          Station.Station_ID , on_delete = models.CASCADE, related_name = "Facility_In_Station"
+          )
+    Key = models.ForeignKey (
+          BarrCat.Item_Code , on_delete = models.CASCADE, related_name = "Facility_Category"
+          )
+    Value = models.BooleanField ( )
+    AJTextEn = models.TextField ( blank = True )
+    AJTextZh = models.TextField ( blank = True )
+    Exit_Coordinate_X_Y = models.TextField ( blank = True )
+
 
 #
 #    Class MTR Lines Fares
@@ -58,16 +61,16 @@ class Station ( models.Model ) :
 # SRC_STATION_NAME,SRC_STATION_ID,DEST_STATION_NAME,DEST_STATION_ID,OCT_ADT_FARE,OCT_STD_FARE,OCT_JOYYOU_SIXTY_FARE,SINGLE_ADT_FARE,OCT_CON_CHILD_FARE,OCT_CON_ELDERLY_FARE,OCT_CON_PWD_FARE,SINGLE_CON_CHILD_FARE,SINGLE_CON_ELDERLY_FARE
 class Fare ( models.Model ) :
     Source_Station_Name = models.ForeignKey (
-          Station , on_delete = models.CASCADE, related_name = "English_Name"
+          Station.English_Name , on_delete = models.CASCADE, related_name = "From_Station"
           )
     Source_Station_ID = models.ForeignKey (
-          Station , on_delete = models.CASCADE, related_name = "Station_ID"
+          Station.Station_ID , on_delete = models.CASCADE, related_name = "From_Station_ID"
           )
     Destination_Station_Name = models.ForeignKey (
-          Station , on_delete = models.CASCADE, related_name = "English_Name"
+          Station.English_Name , on_delete = models.CASCADE, related_name = "To_Station"
           )
     Destination_Station_ID = models.ForeignKey (
-          Station , on_delete = models.CASCADE, related_name = "Station_ID"
+          Station.Station_ID , on_delete = models.CASCADE, related_name = "To_Station_ID"
           )
     Octopus_Card_Adult = models.DecimalField(max_digits=6, decimal_places=2)
     Octopus_Card_Student = models.DecimalField(max_digits=6, decimal_places=2)
