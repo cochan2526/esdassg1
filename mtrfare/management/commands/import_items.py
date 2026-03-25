@@ -3,9 +3,7 @@ from pathlib import Path
 from django.core.management.base import BaseCommand
 from mtrfare.models import BarrCat , BarrFac , Station , Fare
 
-
 from pprint import pprint
-
 
 class Command(BaseCommand):
     help = "Import data from the offline CSV dataset."
