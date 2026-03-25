@@ -13,6 +13,10 @@ class Command(BaseCommand):
         imported = 0
         updated = 0
 
+#
+#    https://stackoverflow.com/questions/17912307/u-ufeff-in-python-string
+#    use utf-8-sig to open csv file to avoid the indicator \ufeff causing trouble
+#
 #         with csv_path.open(newline="", encoding="utf-8") as csv_file:
         with csv_path.open(newline="", encoding="utf-8-sig") as csv_file:
             reader = csv.DictReader(csv_file)
@@ -45,6 +49,10 @@ class Command(BaseCommand):
         imported = 0
         updated = 0
 
+#
+#    https://stackoverflow.com/questions/17912307/u-ufeff-in-python-string
+#    use utf-8-sig to open csv file to avoid the indicator \ufeff causing trouble
+#
 #         with csv_path.open(newline="", encoding="utf-8") as csv_file:
         with csv_path.open(newline="", encoding="utf-8-sig") as csv_file:
             reader = csv.DictReader(csv_file)
@@ -82,6 +90,10 @@ class Command(BaseCommand):
         imported = 0
         updated = 0
 
+#
+#    https://stackoverflow.com/questions/17912307/u-ufeff-in-python-string
+#    use utf-8-sig to open csv file to avoid the indicator \ufeff causing trouble
+#
 #         with csv_path.open(newline="", encoding="utf-8") as csv_file:
         with csv_path.open(newline="", encoding="utf-8-sig") as csv_file:
             reader = csv.DictReader(csv_file)
@@ -114,6 +126,10 @@ class Command(BaseCommand):
         imported = 0
         updated = 0
 
+#
+#    https://stackoverflow.com/questions/17912307/u-ufeff-in-python-string
+#    use utf-8-sig to open csv file to avoid the indicator \ufeff causing trouble
+#
 #         with csv_path.open(newline="", encoding="utf-8") as csv_file:
         with csv_path.open(newline="", encoding="utf-8-sig") as csv_file:
             reader = csv.DictReader(csv_file)
