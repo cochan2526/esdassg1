@@ -28,6 +28,9 @@ class Station ( models.Model ) :
     English_Name = models.TextField ( )
     Sequence = models.IntegerField ( )
 
+    def __str__ ( self ) :
+        return ( str ( self.Station_ID ) + " " + self.English_Name )
+
 #
 #    Class Barrier Free Facility
 #

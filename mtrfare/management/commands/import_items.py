@@ -3,6 +3,10 @@ from pathlib import Path
 from django.core.management.base import BaseCommand
 from mtrfare.models import BarrCat , BarrFac , Station , Fare
 
+
+from pprint import pprint
+
+
 class Command(BaseCommand):
     help = "Import data from the offline CSV dataset."
 
@@ -122,13 +126,11 @@ class Command(BaseCommand):
                 # and destination station instance
                 #
                 source_station = Station.objects.get ( Station_ID = row [ "SRC_STATION_ID" ] ) ,
-                dest_station = Station.objects.get ( Station_ID = row [ "DEST_STATION_ID" ] )  ,
+                dest_station = Station.objects.get ( Station_ID = row [ "DEST_STATION_ID" ] ) ,
 
                 fare , created = Fare.objects.update_or_create(
-#                     Source_Station = source_station ,
-#                     Destination_Station = dest_station ,
-                    Destination_Station_id = int ( row [ "DEST_STATION_ID" ] ) ,
-                    Source_Station_id = int ( row [ "SRC_STATION_ID" ] ) ,
+                    Source_Station = source_station [ 0 ] ,
+                    Destination_Station = dest_station [ 0 ] ,
                     defaults={
                         "Octopus_Card_Adult" : row[ "OCT_ADT_FARE" ] ,
                         "Octopus_Card_Student" : row[ "OCT_STD_FARE" ] ,
@@ -145,6 +147,7 @@ class Command(BaseCommand):
                     imported = imported + 1
                 else:
                     updated = updated + 1
+
 
         self.stdout.write(
             self.style.SUCCESS(
