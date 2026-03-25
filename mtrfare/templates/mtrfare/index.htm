@@ -8,6 +8,22 @@
     <body>
         <h1> MTR Hong Kong fare search </h1>
         <p> Hello {{ username }} ! </p>
+        <form method = "post" action = "{% url "homepage" %}">
+            <select name = "Departing From" id = "source_station">
+                <option value = "" > --- </option>
+                {% for station in source_station_list %}
+                    <option value = "{{ station.id }}"> {{ station.English_Name }} </option>
+                {% endfor %}
+            </select>
+            <select name = "Going To" id = "dest_station">
+                <option value = "" > --- </option>
+                {% for station in dest_station_list %}
+                    <option value = "{{ station.id }}"> {{ station.English_Name }} </option>
+                {% endfor %}
+            </select>
+            <button type ="submit"> Get fare </button>
+        </form>
+        <p> </p>
         <p><a href = "logoff"> Logoff </a></p>
         <p><a href = "logon"> Logon </a></p>
         <p><a href = "register"> Register </a></p>
