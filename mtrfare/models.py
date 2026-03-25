@@ -16,23 +16,6 @@ class BarrCat ( models.Model ) :
     Sorting_Order = models.IntegerField ( )
 
 #
-#    Class Barrier Free Facility
-#
-# "Station_No","Key","Value","AJTextEn","AJTextZh","Exit_Coordinate_X_Y"
-class BarrFac ( models.Model ) :
-
-    Station = models.ForeignKey (
-          Station , on_delete = models.CASCADE, related_name = "Inside"
-          )
-    BarrCat = models.ForeignKey (
-          BarrCat , on_delete = models.CASCADE, related_name = "Is_kind_of"
-          )
-    Value = models.BooleanField ( )
-    AJTextEn = models.TextField ( blank = True )
-    AJTextZh = models.TextField ( blank = True )
-    Exit_Coordinate_X_Y = models.TextField ( blank = True )
-
-#
 #    Class MTR Lines And Stations
 #
 # Line Code,Direction,Station Code,Station ID,Chinese Name,English Name,Sequence
@@ -44,6 +27,22 @@ class Station ( models.Model ) :
     Chinese_Name = models.TextField ( )
     English_Name = models.TextField ( )
     Sequence = models.IntegerField ( )
+
+#
+#    Class Barrier Free Facility
+#
+# "Station_No","Key","Value","AJTextEn","AJTextZh","Exit_Coordinate_X_Y"
+class BarrFac ( models.Model ) :
+    Station = models.ForeignKey (
+          Station , on_delete = models.CASCADE, related_name = "Inside"
+          )
+    BarrCat = models.ForeignKey (
+          BarrCat , on_delete = models.CASCADE, related_name = "Is_kind_of"
+          )
+    Value = models.BooleanField ( )
+    AJTextEn = models.TextField ( blank = True )
+    AJTextZh = models.TextField ( blank = True )
+    Exit_Coordinate_X_Y = models.TextField ( blank = True )
 
 #
 #    Class MTR Lines Fares

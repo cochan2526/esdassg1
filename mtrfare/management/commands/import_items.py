@@ -11,10 +11,12 @@ class Command(BaseCommand):
         imported = 0
         updated = 0
 
-        with csv_path.open(newline="", encoding="utf-8") as csv_file:
+#         with csv_path.open(newline="", encoding="utf-8") as csv_file:
+        with csv_path.open(newline="", encoding="utf-8-sig") as csv_file:
             reader = csv.DictReader(csv_file)
             for row in reader:
                 barrcat , created = BarrCat.objects.update_or_create(
+                    Item_Code = row [ "Item_Code" ] ,
                     defaults={
                         "Item_Code" : row[ "Item_Code" ] ,
                         "Category_Id" : row[ "Category_Id" ] ,
@@ -41,20 +43,21 @@ class Command(BaseCommand):
         imported = 0
         updated = 0
 
-        with csv_path.open(newline="", encoding="utf-8") as csv_file:
+#         with csv_path.open(newline="", encoding="utf-8") as csv_file:
+        with csv_path.open(newline="", encoding="utf-8-sig") as csv_file:
             reader = csv.DictReader(csv_file)
             for row in reader:
-                barrfac , created = BarrFac.objects.update_or_create(
-                    #
-                    # Create the departing ( source )
-                    # and destination station instance
-                    #
-                    station = Station.objects.get ( Station_ID = row [ "SRC_STATION_ID" ] )
-                    facility_category = BarrCat.objects.get ( Item_Code = row [ "key" ] )
+                #
+                # Create the departing ( source )
+                # and destination station instance
+                #
+                station = Station.objects.get ( Station_ID = row [ "Station_No" ] )
+                facility_category = BarrCat.objects.get ( Item_Code = row [ "Key" ] )
 
+                barrfac , created = BarrFac.objects.update_or_create(
+                    Station = station ,
+                    BarrCat = facility_category ,
                     defaults={
-                        "Station" : station ,
-                        "Facility_Category" : facility_category ,
                         "Value" : ( row[ "Value" ]  == "Y" ) ,
                         "AJTextEn" : row[ "AJTextEn" ] ,
                         "AJTextZh" : row[ "AJTextZh" ] ,
@@ -77,17 +80,19 @@ class Command(BaseCommand):
         imported = 0
         updated = 0
 
-        with csv_path.open(newline="", encoding="utf-8") as csv_file:
+#         with csv_path.open(newline="", encoding="utf-8") as csv_file:
+        with csv_path.open(newline="", encoding="utf-8-sig") as csv_file:
             reader = csv.DictReader(csv_file)
             for row in reader:
                 station , created = Station.objects.update_or_create(
+                    Station_ID = row [ "Station ID" ] ,
                     defaults={
-                        "Line_Code" : row[ "Line_Code" ] ,
+                        "Line_Code" : row[ "Line Code" ] ,
                         "Direction" : row[ "Direction" ] ,
-                        "Station_Code" : row[ "Station_Code" ] ,
-                        "Station_ID" : row[ "Station_ID" ] ,
-                        "Chinese_Name" : row[ "Chinese_Name" ] ,
-                        "English_Name" : row[ "English_Name" ] ,
+                        "Station_Code" : row[ "Station Code" ] ,
+#                         "Station_ID" : row[ "Station ID" ] ,
+                        "Chinese_Name" : row[ "Chinese Name" ] ,
+                        "English_Name" : row[ "English Name" ] ,
                         "Sequence" : row[ "Sequence" ] ,
                     },
                 )
@@ -107,21 +112,24 @@ class Command(BaseCommand):
         imported = 0
         updated = 0
 
-        with csv_path.open(newline="", encoding="utf-8") as csv_file:
+#         with csv_path.open(newline="", encoding="utf-8") as csv_file:
+        with csv_path.open(newline="", encoding="utf-8-sig") as csv_file:
             reader = csv.DictReader(csv_file)
+
             for row in reader:
+                #
+                # Create the departing ( source )
+                # and destination station instance
+                #
+                source_station = Station.objects.get ( Station_ID = row [ "SRC_STATION_ID" ] ) ,
+                dest_station = Station.objects.get ( Station_ID = row [ "DEST_STATION_ID" ] )  ,
+
                 fare , created = Fare.objects.update_or_create(
-
-                    #
-                    # Create the departing ( source )
-                    # and destination station instance
-                    #
-                    source_station = Station.objects.get ( Station_ID = row [ "SRC_STATION_ID" ] )
-                    dest_station = Station.objects.get ( Station_ID = row [ "DEST_STATION_ID" ] )
-
+#                     Source_Station = source_station ,
+#                     Destination_Station = dest_station ,
+                    Destination_Station_id = int ( row [ "DEST_STATION_ID" ] ) ,
+                    Source_Station_id = int ( row [ "SRC_STATION_ID" ] ) ,
                     defaults={
-                        "Source_Station" : source_station ,
-                        "Destination_Station" : dest_station ,
                         "Octopus_Card_Adult" : row[ "OCT_ADT_FARE" ] ,
                         "Octopus_Card_Student" : row[ "OCT_STD_FARE" ] ,
                         "Octopus_Card_60" : row[ "OCT_JOYYOU_SIXTY_FARE" ] ,
@@ -147,8 +155,8 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
 
         self.import_barrcat ( )
-        self.import_barrfac ( )
         self.import_station ( )
+        self.import_barrfac ( )
         self.import_fare ( )
 
 
