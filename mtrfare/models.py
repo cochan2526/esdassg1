@@ -22,10 +22,10 @@ class BarrCat ( models.Model ) :
 class BarrFac ( models.Model ) :
 
     Station = models.ForeignKey (
-          Station , on_delete = models.CASCADE, related_name = "Station_ID"
+          Station , on_delete = models.CASCADE, related_name = "Inside"
           )
     BarrCat = models.ForeignKey (
-          BarrCat , on_delete = models.CASCADE, related_name = "Item_Code"
+          BarrCat , on_delete = models.CASCADE, related_name = "Is_kind_of"
           )
     Value = models.BooleanField ( )
     AJTextEn = models.TextField ( blank = True )
@@ -50,7 +50,7 @@ class Station ( models.Model ) :
 #
 #    For the simplicity of this project, this table is NOT normalized
 #
-#    For a cleaner normalized implementation, the station name columns should
+#    For a cleaner normalized implementation, the 2 stations column should
 #    be removed and a journey table with journey ID and station ID as combine
 #    key should be created and this table should point to the journey table
 #    to avoid many to many relationship
@@ -58,10 +58,10 @@ class Station ( models.Model ) :
 # SRC_STATION_NAME,SRC_STATION_ID,DEST_STATION_NAME,DEST_STATION_ID,OCT_ADT_FARE,OCT_STD_FARE,OCT_JOYYOU_SIXTY_FARE,SINGLE_ADT_FARE,OCT_CON_CHILD_FARE,OCT_CON_ELDERLY_FARE,OCT_CON_PWD_FARE,SINGLE_CON_CHILD_FARE,SINGLE_CON_ELDERLY_FARE
 class Fare ( models.Model ) :
     Source_Station = models.ForeignKey (
-          Station , on_delete = models.CASCADE, related_name = "English_Name"
+          Station , on_delete = models.CASCADE, related_name = "Departing_From"
           )
     Destination_Station = models.ForeignKey (
-          Station , on_delete = models.CASCADE, related_name = "English_Name"
+          Station , on_delete = models.CASCADE, related_name = "Destination"
           )
     Octopus_Card_Adult = models.DecimalField(max_digits=6, decimal_places=2)
     Octopus_Card_Student = models.DecimalField(max_digits=6, decimal_places=2)

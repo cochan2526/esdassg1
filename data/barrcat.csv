@@ -1,4 +1,4 @@
-﻿"Item_Code","Category_Id","Category_En","Category_Zh","Facility_En","Facility_Zh","Sorting_Order"
+﻿Item_Code,Category_Id,Category_En,Category_Zh,Facility_En,Facility_Zh,Sorting_Order
 "VJ1","VJ","Facilities for Visually Impaired","視覺受損人士設施","Tactile Guide Paths","失明人士引導徑","1"
 "VJ2","VJ","Facilities for Visually Impaired","視覺受損人士設施","Escalator Audible Warning Signals","扶手電梯發聲提示器","2"
 "VJ3","VJ","Facilities for Visually Impaired","視覺受損人士設施","Platform Tactile Yellow Lines","月台黃色凸條","3"
