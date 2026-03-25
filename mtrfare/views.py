@@ -8,6 +8,7 @@ from .models import Station
 # Create your views here.
 
 def homepage ( request ) :
+
     username = request.user.username
     if ( username == "" ) :
         username = "Guest"
@@ -21,6 +22,14 @@ def homepage ( request ) :
         "dest_station_list"   : dest_stations ,
     }
     return ( render ( request , "mtrfare/index.htm" , context ) )
+
+def showfare ( request ) :
+
+    if request.method == "POST" :
+        source_station = request.POST.get ( "Departing From" , "" )
+        print ( "Source Station :" , source_station )
+
+    return ( redirect ( "homepage" ) )
 
 def register ( request ) :
     print ( "register!" )

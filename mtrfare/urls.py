@@ -8,5 +8,6 @@ urlpatterns = [
         path ( "logon/", views.logon , name = "logon" ) ,
         path ( "logging_on/", views.logging_on , name ="logging_on" ) ,
         path ( "logoff/" , views.logoff , name = "logoff" ) ,
+        path ( "showfare/" , views.showfare , name = "showfare" ) ,
     ]
 
