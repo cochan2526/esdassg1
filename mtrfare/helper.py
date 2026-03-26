@@ -5,6 +5,15 @@ from django.contrib.auth.models import User
 from .models import BarrCat , Station , BarrFac , Fare
 
 #
+#    Return "Guest" if username is not exists ( not logged on )
+#
+def userORguest ( request ) :
+    username = request.user.username
+    if ( username == "" ) :
+        username = "Guest"
+    return ( username )
+
+#
 #    Register User to system
 #    Input : The Post Request from register form
 #    Return : True if success,
@@ -72,9 +81,7 @@ def logging_on_user ( request ) :
 #
 def showing_homepage ( request ) :
 
-    username = request.user.username
-    if ( username == "" ) :
-        username = "Guest"
+    username = userORguest ( request )
 
     stations = Station.objects.all ( )
 
@@ -86,33 +93,35 @@ def showing_homepage ( request ) :
 
 #
 #    Show the fare for selected station
+#    Return context for showing fare page
+#        False if station not selected or
+#        departing and destination station is the same
 #
 def showing_fare ( request ) :
 
-    username = request.user.username
-    if ( username == "" ) :
-        username = "Guest"
+    username = userORguest ( request )
 
     if request.method == "POST" :
         source_station_id = request.POST.get ( "Departing From" , "" )
+        dest_station_id = request.POST.get ( "Going To" , "" )
+
+        if ( ( dest_station_id == "" ) or ( source_station_id ) == "" ) :
+            messages.error( request, "Please select departing and destination stations" )
+            return ( False )
+
         source_station = Station.objects.get ( Station_ID = source_station_id )
         fareSet = list ( Fare.objects.filter ( Destination_Station = source_station ) )
         fareSet.extend ( list ( Fare.objects.filter ( Source_Station = source_station ) ) )
         
-#         print ( "Source Station :" , source_station )
-#         print ( "Fare :" , fare )
-
-        dest_station_id = request.POST.get ( "Going To" , "" )
-        if ( ( dest_station_id != "" ) and ( source_station_id != dest_station_id ) ) :
+        if ( source_station_id == dest_station_id ) :
+            messages.error( request, "Departing and destination stations cannot be the same" )
+            return ( False )
+        else :
             dest_station = Station.objects.get ( Station_ID = dest_station_id )
             if ( dest_station_id > source_station_id ) :
                 fareSet = Fare.objects.filter ( Source_Station = source_station , Destination_Station = dest_station )
             else :
                 fareSet = Fare.objects.filter ( Source_Station = dest_station , Destination_Station = source_station )
-
-#             print ( "Dest Station :" , dest_station )
-#             print ( "Source station number = " , source_station.Station_ID , " Dest Station number = " , dest_station.Station_ID )
-#             print ( "Fare :" , fare )
 
     fare = fareSet [ 0 ]
 

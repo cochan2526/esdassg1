@@ -11,13 +11,11 @@
         <form method = "post" action = "{% url 'showfare' %}">
             {% csrf_token %}
             <select name = "Departing From" id = "source_station">
-                <option value = "" > --- </option>
                 {% for station in station_list %}
                     <option value = "{{ station.Station_ID }}"> {{ station.English_Name }} </option>
                 {% endfor %}
             </select>
             <select name = "Going To" id = "dest_station">
-                <option value = "" > --- </option>
                 {% for station in station_list %}
                     <option value = "{{ station.Station_ID }}"> {{ station.English_Name }} </option>
                 {% endfor %}

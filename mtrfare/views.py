@@ -3,7 +3,9 @@ from django.shortcuts import render , redirect , get_object_or_404
 from django.contrib.auth import logout
 from .helper import registering_user , logging_on_user , showing_fare , showing_homepage
 
-from .models import Station
+# from .models import Station
+from .models import BarrFac , Station , BarrCat
+
 
 # Create your views here.
 
@@ -17,14 +19,27 @@ def barrfac ( request , station_id ) :
 
     station = get_object_or_404( Station , Station_ID = station_id )
     print ( station.Station_ID )
-    context = { "station" : station }
+
+    barrcat = BarrCat.objects.all ( )
+    barrfac = BarrFac.objects.filter ( Station = station )
+
+    print ( "barrcat :" , barrcat )
+    print ( "barrfac :" , barrfac )
+
+    context = { "username" : request.user.username ,
+                "station" : station ,
+                "barrcat" : barrcat ,
+                "barrfac" : barrfac }
+
     return ( render ( request , "mtrfare/barrfac.htm" , context ) )
 
 def showfare ( request ) :
 
     context = showing_fare ( request )
-
-    return ( render ( request , "mtrfare/showfare.htm" , context ) )
+    if context :
+        return ( render ( request , "mtrfare/showfare.htm" , context ) )
+    else :
+        return ( redirect ( "homepage" ) )
 
 def register ( request ) :
 

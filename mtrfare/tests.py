@@ -40,7 +40,7 @@ class BarrFacTest ( TestCase ) :
         client = Client ( )
         response = self.client.get ( "/barrfac/1/" )
         self.assertContains ( response , "Barrier free facilities in the station" )
-#         self.assertContains ( response , "Accessible Toilets (Paid Area)" )
+        self.assertContains ( response , "Accessible Toilets (Paid Area)" )
 
 class UserRegTest ( TestCase ) :
     @classmethod
