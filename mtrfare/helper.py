@@ -2,6 +2,8 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 
+from .models import BarrCat , Station , BarrFac , Fare
+
 #
 #    Register User to system
 #    Input : The Post Request from register form
@@ -64,4 +66,29 @@ def logging_on_user ( request ) :
     else:
         login ( request , user )
         return ( True )
+
+#
+#    Show the fare for selected station
+#
+def showing_fare ( request ) :
+
+    if request.method == "POST" :
+        source_station_id = request.POST.get ( "Departing From" , "" )
+        source_station = Station.objects.get ( Station_ID = source_station_id )
+        fare = list ( Fare.objects.filter ( Destination_Station = source_station ) )
+        fare.extend ( list ( Fare.objects.filter ( Source_Station = source_station ) ) )
+        
+        print ( "Source Station :" , source_station )
+        print ( "Fare :" , fare )
+
+        dest_station_id = request.POST.get ( "Going To" , "" )
+        if ( ( dest_station_id != "" ) and ( source_station_id != dest_station_id ) ) :
+            dest_station = Station.objects.get ( Station_ID = dest_station_id )
+            if ( dest_station_id > source_station_id ) :
+                fare = Fare.objects.filter ( Source_Station = source_station , Destination_Station = dest_station )
+            else :
+                fare = Fare.objects.filter ( Source_Station = dest_station , Destination_Station = source_station )
+            print ( "Dest Station :" , dest_station )
+            print ( "Source station number = " , source_station.Station_ID , " Dest Station number = " , dest_station.Station_ID )
+            print ( "Fare :" , fare )
 

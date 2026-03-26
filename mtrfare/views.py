@@ -1,9 +1,9 @@
 from django.shortcuts import render , redirect
 
 from django.contrib.auth import logout
-from .helper import registering_user , logging_on_user
+from .helper import registering_user , logging_on_user , showing_fare
 
-from .models import BarrCat , Station , BarrFac , Fare
+from .models import Station
 
 # Create your views here.
 
@@ -25,12 +25,7 @@ def homepage ( request ) :
 
 def showfare ( request ) :
 
-    if request.method == "POST" :
-        source_station_id = request.POST.get ( "Departing From" , "" )
-        source_station = Station.objects.get ( Station_ID = source_station_id )
-        fare = Fare.objects.filter ( Source_Station = source_station )
-        print ( "Source Station :" , source_station )
-        print ( "Fare :" , fare )
+    showing_fare ( request )
 
     return ( redirect ( "homepage" ) )
 

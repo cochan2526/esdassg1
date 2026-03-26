@@ -75,3 +75,10 @@ class Fare ( models.Model ) :
     Single_Ticket_Children = models.DecimalField(max_digits=6, decimal_places=2)
     Single_Ticket_Elderly = models.DecimalField(max_digits=6, decimal_places=2)
 
+    def __str__ ( self ) :
+        line = "From " + self.Source_Station.English_Name + \
+               " To " + self.Destination_Station.English_Name + \
+               " Fare " + str ( self.Octopus_Card_Adult )
+        return ( line )
+
+
