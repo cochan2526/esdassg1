@@ -68,27 +68,68 @@ def logging_on_user ( request ) :
         return ( True )
 
 #
+#    Show the Homepage
+#
+def showing_homepage ( request ) :
+
+    username = request.user.username
+    if ( username == "" ) :
+        username = "Guest"
+
+    stations = Station.objects.all ( )
+
+    context = {
+        "username"     : username ,
+        "station_list" : stations ,
+    }
+    return ( context )
+
+#
 #    Show the fare for selected station
 #
 def showing_fare ( request ) :
 
+    username = request.user.username
+    if ( username == "" ) :
+        username = "Guest"
+
     if request.method == "POST" :
         source_station_id = request.POST.get ( "Departing From" , "" )
         source_station = Station.objects.get ( Station_ID = source_station_id )
-        fare = list ( Fare.objects.filter ( Destination_Station = source_station ) )
-        fare.extend ( list ( Fare.objects.filter ( Source_Station = source_station ) ) )
+        fareSet = list ( Fare.objects.filter ( Destination_Station = source_station ) )
+        fareSet.extend ( list ( Fare.objects.filter ( Source_Station = source_station ) ) )
         
-        print ( "Source Station :" , source_station )
-        print ( "Fare :" , fare )
+#         print ( "Source Station :" , source_station )
+#         print ( "Fare :" , fare )
 
         dest_station_id = request.POST.get ( "Going To" , "" )
         if ( ( dest_station_id != "" ) and ( source_station_id != dest_station_id ) ) :
             dest_station = Station.objects.get ( Station_ID = dest_station_id )
             if ( dest_station_id > source_station_id ) :
-                fare = Fare.objects.filter ( Source_Station = source_station , Destination_Station = dest_station )
+                fareSet = Fare.objects.filter ( Source_Station = source_station , Destination_Station = dest_station )
             else :
-                fare = Fare.objects.filter ( Source_Station = dest_station , Destination_Station = source_station )
-            print ( "Dest Station :" , dest_station )
-            print ( "Source station number = " , source_station.Station_ID , " Dest Station number = " , dest_station.Station_ID )
-            print ( "Fare :" , fare )
+                fareSet = Fare.objects.filter ( Source_Station = dest_station , Destination_Station = source_station )
+
+#             print ( "Dest Station :" , dest_station )
+#             print ( "Source station number = " , source_station.Station_ID , " Dest Station number = " , dest_station.Station_ID )
+#             print ( "Fare :" , fare )
+
+    fare = fareSet [ 0 ]
+
+    context = {
+        "username" : username ,
+        "source_station" : source_station ,
+        "dest_station" : dest_station ,
+        "card_adult" : fare.Octopus_Card_Adult ,
+        "card_student" : fare.Octopus_Card_Student ,
+        "card_60" : fare.Octopus_Card_60 ,
+        "single_ticket" : fare.Single_Ticket ,
+        "card_children" : fare.Octopus_Card_Children ,
+        "card_elderly" : fare.Octopus_Card_Elderly ,
+        "card_disabled" : fare.Octopus_Card_Disabled ,
+        "single_children" : fare.Single_Ticket_Children ,
+        "single_elderly" : fare.Single_Ticket_Elderly ,
+        }
+
+    return ( context )
 

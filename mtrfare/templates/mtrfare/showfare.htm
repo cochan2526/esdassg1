@@ -8,17 +8,40 @@
     <body>
         <h1> MTR Hong Kong fare search </h1>
         <p> Hello {{ username }} ! </p>
+        <div class = "journey" >
+            <p> From : {{ source_station.English_Name }} </p>
+            <p> To : {{ dest_station.English_Name }} </p>
+        </div>
+        <div class = "octopus_fare">
+            <p> Octopus Card Adult : {{ card_adult }} </p>
+            <p> Octopus Card Children : {{ card_children }} </p>
+            <p> Octopus Card Student : {{ card_student }} </p>
+            <p> Joyyou Octopus Card Elderly Citizens : {{ card_60 }} </p>
+            <p> Octopus Card Elderly : {{ card_elderly }} </p>
+            <p> Octopus Card Disabled Person : {{ card_disabled }} </p>
+        </div>
+        <div class = "single_fare" >
+            <p> Single Ticket : {{ single_ticket }} </p>
+            <p> Single Children Ticket : {{ single_children }} </p>
+            <p> Single Elderly Ticket :  {{ single_elderly }} </p>
+        </div>
+
+        <a href = "{% url 'homepage' %}" > Home </a>
+
+{% comment %}
+<!--
+
         <form method = "post" action = "{% url 'showfare' %}">
             {% csrf_token %}
             <select name = "Departing From" id = "source_station">
                 <option value = "" > --- </option>
-                {% for station in station_list %}
+                {% for station in source_station_list %}
                     <option value = "{{ station.Station_ID }}"> {{ station.English_Name }} </option>
                 {% endfor %}
             </select>
             <select name = "Going To" id = "dest_station">
                 <option value = "" > --- </option>
-                {% for station in station_list %}
+                {% for station in dest_station_list %}
                     <option value = "{{ station.Station_ID }}"> {{ station.English_Name }} </option>
                 {% endfor %}
             </select>
@@ -35,8 +58,7 @@
                 {% endfor %}
             </div>
         {% endif %}
-{% comment %}
-<!--
+
         <p>Enter a temperature in Celsius and generate a short story .</p>
         <form method ="get" action ="{% url "story_page" %}">
             <label for ="temp"> Temperature in Celsius </label>

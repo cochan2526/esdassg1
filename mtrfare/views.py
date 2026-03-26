@@ -1,7 +1,7 @@
 from django.shortcuts import render , redirect
 
 from django.contrib.auth import logout
-from .helper import registering_user , logging_on_user , showing_fare
+from .helper import registering_user , logging_on_user , showing_fare , showing_homepage
 
 from .models import Station
 
@@ -9,25 +9,15 @@ from .models import Station
 
 def homepage ( request ) :
 
-    username = request.user.username
-    if ( username == "" ) :
-        username = "Guest"
+    context = showing_homepage ( request )
 
-    source_stations = Station.objects.all ( )
-    dest_stations = Station.objects.all ( )
-
-    context = {
-        "username"            : username ,
-        "source_station_list" : source_stations ,
-        "dest_station_list"   : dest_stations ,
-    }
     return ( render ( request , "mtrfare/index.htm" , context ) )
 
 def showfare ( request ) :
 
-    showing_fare ( request )
+    context = showing_fare ( request )
 
-    return ( redirect ( "homepage" ) )
+    return ( render ( request , "mtrfare/showfare.htm" , context ))
 
 def register ( request ) :
     print ( "register!" )
