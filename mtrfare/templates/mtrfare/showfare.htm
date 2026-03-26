@@ -9,8 +9,9 @@
         <h1> MTR Hong Kong fare search </h1>
         <p> Hello {{ username }} ! </p>
         <div class = "journey" >
-            <p> From : {{ source_station.English_Name }} </p>
-            <p> To : {{ dest_station.English_Name }} </p>
+            <p> Click on station name for barrier free facilities in that station </p>
+            <p> From : <a href = " {% url 'barrfac' source_station.Station_ID %} " > {{ source_station.English_Name }} </a> </p>
+            <p> To : <a href = " {% url 'barrfac' dest_station.Station_ID %} " > {{ dest_station.English_Name }} </a> </p>
         </div>
         <div class = "octopus_fare">
             <p> Octopus Card Adult : {{ card_adult }} </p>
@@ -25,68 +26,7 @@
             <p> Single Children Ticket : {{ single_children }} </p>
             <p> Single Elderly Ticket :  {{ single_elderly }} </p>
         </div>
-
         <a href = "{% url 'homepage' %}" > Home </a>
-
-{% comment %}
-<!--
-
-        <form method = "post" action = "{% url 'showfare' %}">
-            {% csrf_token %}
-            <select name = "Departing From" id = "source_station">
-                <option value = "" > --- </option>
-                {% for station in source_station_list %}
-                    <option value = "{{ station.Station_ID }}"> {{ station.English_Name }} </option>
-                {% endfor %}
-            </select>
-            <select name = "Going To" id = "dest_station">
-                <option value = "" > --- </option>
-                {% for station in dest_station_list %}
-                    <option value = "{{ station.Station_ID }}"> {{ station.English_Name }} </option>
-                {% endfor %}
-            </select>
-            <button type ="submit"> Get fare </button>
-        </form>
-        <p> </p>
-        <p><a href = "logoff"> Logoff </a></p>
-        <p><a href = "logon"> Logon </a></p>
-        <p><a href = "register"> Register </a></p>
-        {% if messages %}
-            <div class="alert alert-primary" role="alert">
-                {% for message in messages %}
-                {{ message }}
-                {% endfor %}
-            </div>
-        {% endif %}
-
-        <p>Enter a temperature in Celsius and generate a short story .</p>
-        <form method ="get" action ="{% url "story_page" %}">
-            <label for ="temp"> Temperature in Celsius </label>
-            <input id="temp" name ="temp" value ="{{ temp }}" placeholder ="e.g. 12">
-            <button type ="submit">Make story </button>
-        </form>
-        {% if error %}
-        <p>{{ error }}</p>
-        {% endif %}
-        {% if story %}
-        <h2> Generated story </h2>
-        <p>{{ story }}</p>
-        <form method ="post" action ="{% url 'save_story' %}">
-            {% csrf_token %}
-            <input type =" hidden" name ="temp" value ="{{ temp }}">
-            <button type ="submit">Save story </button>
-        </form>
-        {% endif %}
-        <h2> Saved stories </h2>
-        <ul>
-            {% for entry in stories %}
-                <li> {{ entry.temperature }}C: {{ entry.story }}</li>
-                {% empty %}
-                <li> no saved story yet </li>
-            {% endfor %}
-        </ul>
--->
-{% endcomment %}
     </body>
 </html>
 
