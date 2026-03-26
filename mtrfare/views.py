@@ -20,11 +20,15 @@ def barrfac ( request , station_id ) :
     station = get_object_or_404( Station , Station_ID = station_id )
     print ( station.Station_ID )
 
-    barrcat = BarrCat.objects.all ( )
-    barrfac = BarrFac.objects.filter ( Station = station )
+    barrcat = list ( BarrCat.objects.all ( ) )
+    barrfac = list ( BarrFac.objects.filter ( Station = station ) )
 
-    print ( "barrcat :" , barrcat )
-    print ( "barrfac :" , barrfac )
+    facilities = {}
+
+    index = len ( barrfac )
+    while index :
+        index = index - 1
+        
 
     context = { "username" : request.user.username ,
                 "station" : station ,
