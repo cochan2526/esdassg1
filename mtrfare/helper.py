@@ -1,8 +1,22 @@
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
+from django.shortcuts import get_object_or_404
 
 from .models import BarrCat , Station , BarrFac , Fare
+
+
+# Source - https://stackoverflow.com/a/6761908
+# Posted by Manny D
+# Retrieved 2026-03-27, License - CC BY-SA 3.0
+
+__all__ = [ "registering_user" ,
+            "logging_on_user" ,
+            "showing_fare" ,
+#             "userORguest" ,
+            "showing_homepage" ,
+            "diplay_barrfac" ,
+          ]
 
 #
 #    Return "Guest" if username is not exists ( not logged on )
@@ -141,4 +155,54 @@ def showing_fare ( request ) :
         }
 
     return ( context )
+
+#
+#    Create the context for displaying barrier free facilities
+#
+def diplay_barrfac ( request , station_id ) :
+
+    username = userORguest ( request )
+
+    station = get_object_or_404( Station , Station_ID = station_id )
+
+    barrcat = BarrCat.objects.all ( )
+    barrfac = list ( BarrFac.objects.filter ( Station = station ) )
+
+    #
+    # Build a dictionary of list of facilities grouped by category
+    #
+
+    facilities = {}
+
+    index = len ( barrfac )
+    while index :
+        index = index - 1
+        barrfac_item = barrfac[ index ]
+        #
+        #    Although the csv is trim down by filtered out all
+        #    facilities not exists ( Value = "N" / False ) ,
+        #    to provide compatibility , checking is kept
+        #
+        #    Check if the facility is exist or not
+        #
+        if ( barrfac_item.Value ) :
+            #
+            #    Get the list of the facilities grouped by the category of the item
+            #
+            item_cat_en = barrfac_item.BarrCat.Category_En
+            item_code = barrfac_item.BarrCat.Item_Code
+            facility_category = barrcat.get ( Item_Code = item_code )
+            facilities_by_cat = facilities.get ( item_cat_en , [] )
+            facilities_by_cat.append ( {
+                "Facility_En" : facility_category.Facility_En ,
+                "Adjacent_To" : barrfac_item.AJTextEn ,
+                } )
+            facilities [ item_cat_en ] = facilities_by_cat
+
+    context = { "username" : username ,
+                "station" : station ,
+                "facilities" : facilities }
+
+    return ( context )
+
 
