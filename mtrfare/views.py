@@ -1,7 +1,7 @@
 from django.shortcuts import render , redirect , get_object_or_404
 
 from django.contrib.auth import logout
-from .helper import registering_user , logging_on_user , showing_fare , showing_homepage
+from .helper import registering_user , logging_on_user , showing_fare , showing_homepage , userORguest
 
 # from .models import Station
 from .models import BarrFac , Station , BarrCat
@@ -17,23 +17,47 @@ def homepage ( request ) :
 
 def barrfac ( request , station_id ) :
 
-    station = get_object_or_404( Station , Station_ID = station_id )
-    print ( station.Station_ID )
+    username = userORguest ( request )
 
-    barrcat = list ( BarrCat.objects.all ( ) )
+    station = get_object_or_404( Station , Station_ID = station_id )
+
+    barrcat = BarrCat.objects.all ( )
     barrfac = list ( BarrFac.objects.filter ( Station = station ) )
+
+    #
+    # Build a dictionary of list of facilities grouped by category
+    #
 
     facilities = {}
 
     index = len ( barrfac )
     while index :
         index = index - 1
-        
+        barrfac_item = barrfac[ index ]
+        #
+        #    Although the csv is trim down by filtered out all
+        #    facilities not exists ( Value = "N" / False ) ,
+        #    to provide compatibility , checking is kept
+        #
+        #    Check if the facility is exist or not
+        #
+        if ( barrfac_item.Value ) :
+            #
+            #    Get the list of the facilities grouped by the category of the item
+            #
+            item_cat_en = barrfac_item.BarrCat.Category_En
+            item_code = barrfac_item.BarrCat.Item_Code
+            facility_category = barrcat.get ( Item_Code = item_code )
+            facilities_by_cat = facilities.get ( item_cat_en , [] )
+            facilities_by_cat.append ( {
+                "Facility_En" : facility_category.Facility_En ,
+                "Adjacent_To" : barrfac_item.AJTextEn ,
+                } )
+            facilities [ item_cat_en ] = facilities_by_cat
 
-    context = { "username" : request.user.username ,
+    context = { "username" : username ,
                 "station" : station ,
-                "barrcat" : barrcat ,
-                "barrfac" : barrfac }
+                "facilities" : facilities }
 
     return ( render ( request , "mtrfare/barrfac.htm" , context ) )
 

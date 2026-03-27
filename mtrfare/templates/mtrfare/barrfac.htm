@@ -12,16 +12,20 @@
             <h2> Barrier free facilities in the station {{ station.English_Name }} </h2>
         </div>
         <div class = "Facility List" >
-            {% for category in barrcat %}
-                <p> Category : {{ category.Category_En }} </p>
-                {% for item in barrfac %}
-                    {% if barrfac.BarrCat == category %}
-                        <p> Facility : {{ category.Facility_En }} </p>
-                        {% if barrfac.AJTextEn %}
-                            <p> Near : {{ barrfac.AJTextEn }} </p>
+            <!-- Loop through dictionary of list reference to -->
+            <!-- https://forum.djangoproject.com/t/loop-through-dictionary-of-lists/2849 -->
+            {% for category , facility_list in facilities.items %}
+                <h3> Category : {{ category }} </h3>
+                <ul>
+                    {% for item in facility_list %}
+                    <li>
+                        Facility : {{ item.Facility_En }}
+                        {% if Adjacent_To %}
+                        , Adjacent To : {{ Adjacent_To }}
                         {% endif %}
-                    {% endif %}
-                {% endfor %}
+                    </li>
+                    {% endfor %}
+                </ul>
             {% endfor %}
         </div>
         <a href = "{% url 'homepage' %}" > Home </a>
