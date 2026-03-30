@@ -23,9 +23,12 @@
             <button type ="submit"> Get fare </button>
         </form>
         <p> </p>
-        <p><a href = "logoff"> Logoff </a></p>
-        <p><a href = "logon"> Logon </a></p>
-        <p><a href = "register"> Register </a></p>
+        <div> <p><a href = "logoff"> Logoff </a></p> </div>
+        <div> <p><a href = "logon"> Logon </a></p> </div>
+        {% if username != "Guest" %}
+            <div> <p><a href = "account"> Account </a></p> </div>
+        {% endif %}
+        <div> <p><a href = "register"> Register </a></p> </div>
         {% if messages %}
             <div class="alert alert-primary" role="alert">
                 {% for message in messages %}

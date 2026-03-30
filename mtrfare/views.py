@@ -14,6 +14,16 @@ def homepage ( request ) :
 
     return ( render ( request , "mtrfare/index.htm" , context ) )
 
+def account ( request ) :
+
+    username = request.user.username ;
+
+    return ( render ( request , "mtrfare/account.htm" , { "username" : username } ) )
+
+def preference ( request ) :
+
+    return ( redirect ( "homepage" ) )
+
 def barrfac ( request , station_id ) :
 
     context = diplay_barrfac ( request , station_id )

@@ -10,5 +10,7 @@ urlpatterns = [
         path ( "logoff/" , views.logoff , name = "logoff" ) ,
         path ( "showfare/" , views.showfare , name = "showfare" ) ,
         path ( "barrfac/<int:station_id>/" , views.barrfac , name = "barrfac" ) ,
+        path ( "account/" , views.account , name = "account" ) ,
+        path ( "preference/" , views.preference , name = "preference" ) ,
     ]
 
