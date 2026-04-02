@@ -1,6 +1,8 @@
 from django.test import Client , TestCase
 from django.contrib.auth.models import User
-from .models import BarrFac , Station , BarrCat
+from .models import BarrFac , Station , BarrCat , UserPref
+
+import json
 
 # Create your tests here.
 
@@ -46,6 +48,12 @@ class UserRegTest ( TestCase ) :
     @classmethod
     def setUpTestData ( cls ) :
         cls.user = User.objects.create_user ( username = "userT1" , password = "pwdT1" )
+        cls.userpref = UserPref.objects.create (
+            username = "userT1" ,
+            pref_source_station_id = 1 ,
+            pref_dest_station_id = 3 ,
+            pref_barrier_free_facilities = json.dumps ( { "Category" : [ "MJ" , "VJ" ] , "Facility" : [ "HJ7" , "AJ9" ] } )
+            )
 
     def test_usert1 ( self ) :
         self.assertEqual ( self.user.username , "userT1" )

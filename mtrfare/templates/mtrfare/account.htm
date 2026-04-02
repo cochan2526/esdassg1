@@ -11,19 +11,61 @@
         <h2> Account page </h2>
         <form method = "post" action = "{% url 'preference' %}">
             {% csrf_token %}
-            <select name = "Preference Source Station" id = "preference_source_station">
+            Prefered Departing Station :
+            <select name = "Preference Source Station" id = "preferred_source_station">
+                <option value = "0"> --- </option>
                 {% for station in station_list %}
-                    <option value = "{{ station.Station_ID }}"> {{ station.English_Name }} </option>
+                    <option value = "{{ station.Station_ID }}"
+                        {% if station.Station_ID == userPref.pref_source_station_id %}
+                            selected
+                        {% endif %}
+                    > {{ station.English_Name }}
+                    </option>
                 {% endfor %}
             </select>
-            <select name = "Preference Destionation Staion" id = "preference_dest_station">
+            Prefered Destination Station :
+            <select name = "Preference Destionation Staion" id = "preferred_dest_station">
+                <option value = "0"> --- </option>
                 {% for station in station_list %}
-                    <option value = "{{ station.Station_ID }}"> {{ station.English_Name }} </option>
+                    <option value = "{{ station.Station_ID }}"
+                        {% if station.Station_ID == userPref.pref_dest_station_id %}
+                            selected
+                        {% endif %}
+                    > {{ station.English_Name }}
+                    </option>
                 {% endfor %}
             </select>
             <button type ="submit"> Save </button>
-        </form>
+        <!-- /form -->
+        <div class = "Facility List" >
+            <!-- Loop through dictionary of list reference to -->
+            <!-- https://forum.djangoproject.com/t/loop-through-dictionary-of-lists/2849 -->
+            <!-- Django Templating: how to access properties of the first item in a list -->
+            <!-- https://stackoverflow.com/questions/1479206/django-templating-how-to-access-properties-of-the-first-item-in-a-list -->
+            <!-- form method = "post" action = "{% url 'preference' %}" -->
+            {% for category , facility_list in facilities.items %}
+                <h3>
+                    <!-- input type = "checkbox" name = "{{ category }}" value = "{{ facility_list.0.Category_Id }}" -->
+                    <input type = "checkbox" name = "BarrCat" value = "{{ facility_list.0.Category_Id }}" >
+                    <label for = "{{ category }}" > Category : {{ category }} </label>
+                </h3>
+                <ul>
+                    {% for item in facility_list %}
+                    <li>
+                        <!-- input type = "checkbox" name = {{ item.Facility_En }} value = "{{ item.Item_Code }} -->
+                        <input type = "checkbox" name = "BarrFac" value = "{{ item.Item_Code }}" >
+                        <label for = "{{ item.Facility_En }}" >  Facility : {{ item.Facility_En }} </label>
+                    </li>
+                    {% endfor %}
+                </ul>
+            {% endfor %}
+            </form>
+        </div>
+        <a href = "{% url 'homepage' %}" > Home </a>
+
 {% comment %}
+        {{ facilities }}
+
         <form method ="post" action ="{% url 'logging_on' %}">
             {% csrf_token %}
             <p> username : <input name ="username" value ="{{ username }}"> </p>

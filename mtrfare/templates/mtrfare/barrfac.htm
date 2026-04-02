@@ -9,7 +9,7 @@
         <h1> MTR Hong Kong fare search </h1>
         <p> Hello {{ username }} ! </p>
         <div class = "Title" >
-            <h2> Barrier free facilities in the station {{ station.English_Name }} </h2>
+            <h2> Barrier free facilities in the {{ station.English_Name }} station</h2>
         </div>
         <div class = "Facility List" >
             <!-- Loop through dictionary of list reference to -->
@@ -20,8 +20,8 @@
                     {% for item in facility_list %}
                     <li>
                         Facility : {{ item.Facility_En }}
-                        {% if Adjacent_To %}
-                        , Adjacent To : {{ Adjacent_To }}
+                        {% if item.Adjacent_To %}
+                        , Adjacent To : {{ item.Adjacent_To }}
                         {% endif %}
                     </li>
                     {% endfor %}

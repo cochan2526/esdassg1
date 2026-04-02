@@ -10,14 +10,28 @@
         <p> Hello {{ username }} ! </p>
         <form method = "post" action = "{% url 'showfare' %}">
             {% csrf_token %}
+            From :
             <select name = "Departing From" id = "source_station">
                 {% for station in station_list %}
-                    <option value = "{{ station.Station_ID }}"> {{ station.English_Name }} </option>
+                    <option value = "{{ station.Station_ID }}"
+                        {% if station.Station_ID == userPref.pref_source_station_id %}
+                            selected
+                        {% endif %}
+                    >
+                    {{ station.English_Name }} 
+                    </option>
                 {% endfor %}
             </select>
+            To :
             <select name = "Going To" id = "dest_station">
                 {% for station in station_list %}
-                    <option value = "{{ station.Station_ID }}"> {{ station.English_Name }} </option>
+                    <option value = "{{ station.Station_ID }}"
+                        {% if station.Station_ID == userPref.pref_dest_station_id %}
+                            selected
+                        {% endif %}
+                    >
+                    {{ station.English_Name }}
+                    </option>
                 {% endfor %}
             </select>
             <button type ="submit"> Get fare </button>
@@ -37,6 +51,8 @@
             </div>
         {% endif %}
 {% comment %}
+        {{ userPref }}
+        {{ station_list }}
 <!--
         <p>Enter a temperature in Celsius and generate a short story .</p>
         <form method ="get" action ="{% url "story_page" %}">

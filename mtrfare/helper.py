@@ -3,7 +3,7 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 from django.shortcuts import get_object_or_404
 
-from .models import BarrCat , Station , BarrFac , Fare
+from .models import BarrCat , Station , BarrFac , Fare , UserPref
 
 
 # Source - https://stackoverflow.com/a/6761908
@@ -16,7 +16,21 @@ __all__ = [ "registering_user" ,
 #             "userORguest" ,
             "showing_homepage" ,
             "diplay_barrfac" ,
+            "str2int" ,
           ]
+
+#
+#    Convert a string to integer
+#        Parameters : string to be converted
+#        Return : Integer converted
+#                 None or value set by caller if the string is not integer
+#
+def str2int ( input_str , notnumber = None ) :
+    try :
+        value = int ( input_str )  # Try to convert string to integer
+    except :
+        value = notnumber    # If string is NOT int, return None or value set
+    return ( value )
 
 #
 #    Return "Guest" if username is not exists ( not logged on )
@@ -99,9 +113,19 @@ def showing_homepage ( request ) :
 
     stations = Station.objects.all ( )
 
+    userPref = { "Category" : [] , "Facility" : [] }
+
+    if ( request.user ) :
+        userPrefSet = UserPref.objects.filter ( username = username )
+        userPref = userPrefSet [ 0 ]
+
+        if ( len ( userPrefSet ) == 0) :
+            userPref = { "pref_source_station_id" : 0 , "pref_dest_station_id" : 0 , "Category" : [] , "Facility" : [] }
+
     context = {
         "username"     : username ,
         "station_list" : stations ,
+        "userPref"     : userPref ,
     }
     return ( context )
 
@@ -123,15 +147,32 @@ def showing_fare ( request ) :
             messages.error( request, "Please select departing and destination stations" )
             return ( False )
 
+        #
+        #    In order to reduce the size of data set
+        #    fare dataset has been trimmed down to half
+        #    as the fare is the same from station A to station
+        #    B , regardless of direction.
+        #    that is only fare of station with smaller id to
+        #    bigger id is stored in dataset, the full fare table
+        #    for any station will be joining of from station with
+        #    smaller id to that station, and from that station to
+        #    station to bigger id
+        #
         source_station = Station.objects.get ( Station_ID = source_station_id )
         fareSet = list ( Fare.objects.filter ( Destination_Station = source_station ) )
         fareSet.extend ( list ( Fare.objects.filter ( Source_Station = source_station ) ) )
-        
+
         if ( source_station_id == dest_station_id ) :
             messages.error( request, "Departing and destination stations cannot be the same" )
             return ( False )
         else :
             dest_station = Station.objects.get ( Station_ID = dest_station_id )
+
+            #
+            # as mentioned above, for fare from bigger station id to smaller
+            # one, the source and destination station of the query has to be
+            # reversed.
+            #
             if ( dest_station_id > source_station_id ) :
                 fareSet = Fare.objects.filter ( Source_Station = source_station , Destination_Station = dest_station )
             else :
@@ -179,7 +220,7 @@ def diplay_barrfac ( request , station_id ) :
         index = index - 1
         barrfac_item = barrfac[ index ]
         #
-        #    Although the csv is trim down by filtered out all
+        #    Although the csv is trimmed down by filtered out all
         #    facilities not exists ( Value = "N" / False ) ,
         #    to provide compatibility , checking is kept
         #

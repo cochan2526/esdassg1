@@ -81,4 +81,17 @@ class Fare ( models.Model ) :
                " Fare " + str ( self.Octopus_Card_Adult )
         return ( line )
 
+#
+#    Class user preference
+#
+#    For simplicity of the system, field not linked to station 
+#    and barrier free facility category tables ( models )
+#    by ForeignKey
+#
+class UserPref ( models.Model ) :
+
+    username = models.TextField ( unique = True )
+    pref_source_station_id = models.IntegerField ( )
+    pref_dest_station_id = models.IntegerField ( )
+    pref_barrier_free_facilities = models.TextField ( )
 
