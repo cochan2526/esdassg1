@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 
 # Create your models here.
@@ -90,8 +91,11 @@ class Fare ( models.Model ) :
 #
 class UserPref ( models.Model ) :
 
-    username = models.TextField ( unique = True )
-    pref_source_station_id = models.IntegerField ( )
-    pref_dest_station_id = models.IntegerField ( )
-    pref_barrier_free_facilities = models.TextField ( )
+#     username = models.TextField ( unique = True )
+    User = models.OneToOneField (
+          User , on_delete = models.CASCADE, related_name = "Prefer"
+          )
+    Pref_source_station_id = models.IntegerField ( )
+    Pref_dest_station_id = models.IntegerField ( )
+    Pref_barrier_free_facilities = models.TextField ( )
 

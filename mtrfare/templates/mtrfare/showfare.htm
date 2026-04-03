@@ -26,6 +26,40 @@
             <p> Single Children Ticket : {{ single_children }} </p>
             <p> Single Elderly Ticket :  {{ single_elderly }} </p>
         </div>
+        {% if username != "Guest" %}
+            <div class = "source_facilities">
+            <h2> Barrier Free Facilities in concern in {{ source_station.English_Name }} Station </h2>
+            {% for category , facility_list in source_pref_facilities.items %}
+                <h3> Category : {{ category }} </h3>
+                <ul>
+                    {% for item in facility_list %}
+                    <li>
+                        Facility : {{ item.Facility_En }}
+                        {% if item.Adjacent_To %}
+                        , Adjacent To : {{ item.Adjacent_To }}
+                        {% endif %}
+                    </li>
+                    {% endfor %}
+                </ul>
+            {% endfor %}
+            </div>
+            <div class = "dest_facilities">
+            <h2> Barrier Free Facilities in concern in {{ dest_station.English_Name }} Station </h2>
+            {% for category , facility_list in dest_pref_facilities.items %}
+                <h3> Category : {{ category }} </h3>
+                <ul>
+                    {% for item in facility_list %}
+                    <li>
+                        Facility : {{ item.Facility_En }}
+                        {% if item.Adjacent_To %}
+                        , Adjacent To : {{ item.Adjacent_To }}
+                        {% endif %}
+                    </li>
+                    {% endfor %}
+                </ul>
+            {% endfor %}
+            </div>
+        {% endif %}
         <a href = "{% url 'homepage' %}" > Home </a>
     </body>
 </html>

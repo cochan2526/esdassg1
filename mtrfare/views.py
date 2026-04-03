@@ -22,11 +22,10 @@ def account ( request ) :
 
     stations = Station.objects.all ( )
 
-    userPrefSet = UserPref.objects.filter ( username = username )
-    userPref = userPrefSet [ 0 ]
+    userPref = getUserPref ( request )
 
-    if ( len ( userPrefSet ) == 0) :
-        userPref = { "pref_source_station_id" : 0 , "pref_dest_station_id" : 0 , "Category" : [] , "Facility" : [] }
+#     if ( len ( userPrefSet ) == 0) :
+#         userPref = { "pref_source_station_id" : 0 , "pref_dest_station_id" : 0 , "Category" : [] , "Facility" : [] }
 
     #
     #    build the dictionary for list of barrier free facilities
@@ -40,6 +39,26 @@ def account ( request ) :
         index = index - 1
         barrcat_item = barrcat[ index ]
         item_cat_en = barrcat_item.Category_En
+
+        #
+        #    do the prefer categoy and facility check
+        #
+        pref_category = False
+        pref_facility = False
+        index2 = len ( userPref [ "Category" ] )
+        while index2 :
+            index2 = index2 - 1
+            if ( barrcat_item.Category_Id == userPref [ "Category" ] [ index2 ] ) :
+                pref_category = True
+                index2= 0 # Break the loop instantly
+
+        index2 = len ( userPref [ "Facility" ] )
+        while index2 :
+            index2 = index2 - 1
+            if ( barrcat_item.Item_Code == userPref [ "Facility" ] [ index2 ] ) :
+                pref_facility = True
+                index2= 0 # Break the loop instantly
+
         facilities_by_cat = facilities.get ( item_cat_en , [] )
         facilities_by_cat.append ( {
             "Item_Code" : barrcat_item.Item_Code ,
@@ -49,6 +68,8 @@ def account ( request ) :
             "Facility_En" : barrcat_item.Facility_En ,
 #             "Facility_Zh" :
 #             "Sorting_Order" :
+            "Pref_Category" : pref_category ,
+            "Pref_Facility" : pref_facility ,
             } )
         facilities [ item_cat_en ] = facilities_by_cat
 
@@ -70,28 +91,26 @@ def preference ( request ) :
 # How to get checkbox values in django application
 # https://stackoverflow.com/questions/48735726/how-to-get-checkbox-values-in-django-application
 
-    for key, value in request.POST.items():
-        print('Key: %s' % (key) ) 
-        print ( request.POST.getlist ( "BarrCat" ) )
-        print ( request.POST.getlist ( "BarrFac" ) )
+    barrcat = request.POST.getlist ( "BarrCat" )
+    barrfac = request.POST.getlist ( "BarrFac" )
 
     if ( len ( username ) ) :
 
         pref_source_station = str2int ( request.POST.get ( "Preference Source Station" , 0 ) , 0 )
         pref_dest_station = str2int ( request.POST.get ( "Preference Destionation Staion" , 0 ) , 0 )
 
-        if ( ( pref_source_station > 0 ) or ( pref_dest_station > 0 ) ) :
+        if ( ( pref_source_station > 0 ) or 
+             ( pref_dest_station > 0 )  or
+             ( len ( barrcat ) > 0 ) or
+             ( len ( barrfac ) > 0 ) ) :
             UserPref.objects.update_or_create(
-                username = username ,
+                User = request.user ,
                 defaults={
-                    "pref_source_station_id" : pref_source_station ,
-                    "pref_dest_station_id" : pref_dest_station ,
-                    "pref_barrier_free_facilities" : json.dumps ( { "Category" : [] , "Facility" : [] } )
+                    "Pref_source_station_id" : pref_source_station ,
+                    "Pref_dest_station_id" : pref_dest_station ,
+                    "Pref_barrier_free_facilities" : json.dumps ( { "Category" : barrcat , "Facility" : barrfac } )
                 },
             )
-
-#             userPref = { "pref_source_station_id" : 0 , "pref_dest_station_id" : 0 , "Category" : [] , "Facility" : [] }
-#     print ( pref_source_station , pref_dest_station )
 
     return ( redirect ( "homepage" ) )
 

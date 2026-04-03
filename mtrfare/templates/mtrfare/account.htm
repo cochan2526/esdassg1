@@ -3,10 +3,10 @@
     <head>
         <meta charset ="utf-8">
         <meta name ="viewport" content ="width=device-width , initial-scale=1">
-        <title> MTR Hong Kong Fare </title>
+        <title> MTR Hong Kong Fare and Barrier Free Facilities -- Account </title>
         </head>
     <body>
-        <h1> MTR Hong Kong fare search </h1>
+        <h1> MTR Hong Kong fare and barrier free facilities search </h1>
         <p> Hello {{ username }} ! </p>
         <h2> Account page </h2>
         <form method = "post" action = "{% url 'preference' %}">
@@ -16,7 +16,7 @@
                 <option value = "0"> --- </option>
                 {% for station in station_list %}
                     <option value = "{{ station.Station_ID }}"
-                        {% if station.Station_ID == userPref.pref_source_station_id %}
+                        {% if station.Station_ID == userPref.Pref_source_station_id %}
                             selected
                         {% endif %}
                     > {{ station.English_Name }}
@@ -28,7 +28,7 @@
                 <option value = "0"> --- </option>
                 {% for station in station_list %}
                     <option value = "{{ station.Station_ID }}"
-                        {% if station.Station_ID == userPref.pref_dest_station_id %}
+                        {% if station.Station_ID == userPref.Pref_dest_station_id %}
                             selected
                         {% endif %}
                     > {{ station.English_Name }}
@@ -45,15 +45,19 @@
             <!-- form method = "post" action = "{% url 'preference' %}" -->
             {% for category , facility_list in facilities.items %}
                 <h3>
-                    <!-- input type = "checkbox" name = "{{ category }}" value = "{{ facility_list.0.Category_Id }}" -->
-                    <input type = "checkbox" name = "BarrCat" value = "{{ facility_list.0.Category_Id }}" >
+                    <!-- check the box if it is in preferred category -->
+                    <input type = "checkbox" name = "BarrCat" value = "{{ facility_list.0.Category_Id }}"
+                        {% if facility_list.0.Pref_Category %} checked {% endif %}
+                    >
                     <label for = "{{ category }}" > Category : {{ category }} </label>
                 </h3>
                 <ul>
                     {% for item in facility_list %}
                     <li>
-                        <!-- input type = "checkbox" name = {{ item.Facility_En }} value = "{{ item.Item_Code }} -->
-                        <input type = "checkbox" name = "BarrFac" value = "{{ item.Item_Code }}" >
+                        <!-- check the box if it is in preferred facility -->
+                        <input type = "checkbox" name = "BarrFac" value = "{{ item.Item_Code }}"
+                            {% if item.Pref_Facility %} checked {% endif %}
+                        >
                         <label for = "{{ item.Facility_En }}" >  Facility : {{ item.Facility_En }} </label>
                     </li>
                     {% endfor %}
@@ -62,24 +66,6 @@
             </form>
         </div>
         <a href = "{% url 'homepage' %}" > Home </a>
-
-{% comment %}
-        {{ facilities }}
-
-        <form method ="post" action ="{% url 'logging_on' %}">
-            {% csrf_token %}
-            <p> username : <input name ="username" value ="{{ username }}"> </p>
-            <p> password : <input type = "password" name ="password" value ="{{ password }}"> </p>
-            <button type ="submit"> Login </button>
-        </form>
-        {% if messages %}
-            <div class="alert alert-primary" role="alert">
-                {% for message in messages %}
-                {{ message }}
-                {% endfor %}
-            </div>
-        {% endif %}
-{% endcomment %}
     </body>
 </html>
 
