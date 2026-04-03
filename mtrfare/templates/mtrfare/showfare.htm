@@ -8,28 +8,31 @@
         <link rel="stylesheet" href="{% static 'mtrfare/style.css' %}">
     </head>
     <body>
-        <div class = "header" >
+        <div class = "banner" >
             <h1> MTR Hong Kong fare and barrier free facilities search </h1>
             <p> Hello {{ username }} ! </p>
         </div>
-        <div class = "journey" >
+        <div class = "middle_container" >
             <p> Click on station name for barrier free facilities in that station </p>
             <p> From : <a href = " {% url 'barrfac' source_station.Station_ID %} " > {{ source_station.English_Name }} </a> </p>
             <p> To : <a href = " {% url 'barrfac' dest_station.Station_ID %} " > {{ dest_station.English_Name }} </a> </p>
         </div>
-        <div class = "octopus_fare">
-            <p> Octopus Card Adult : {{ card_adult }} </p>
-            <p> Octopus Card Children : {{ card_children }} </p>
-            <p> Octopus Card Student : {{ card_student }} </p>
-            <p> Joyyou Octopus Card Elderly Citizens : {{ card_60 }} </p>
-            <p> Octopus Card Elderly : {{ card_elderly }} </p>
-            <p> Octopus Card Disabled Person : {{ card_disabled }} </p>
+        <div class = "fare_area" >
+            <div class = "octopus_fare">
+                <p> Octopus Card Adult : {{ card_adult }} </p>
+                <p> Octopus Card Children : {{ card_children }} </p>
+                <p> Octopus Card Student : {{ card_student }} </p>
+                <p> Joyyou Octopus Card Elderly Citizens : {{ card_60 }} </p>
+                <p> Octopus Card Elderly : {{ card_elderly }} </p>
+                <p> Octopus Card Disabled Person : {{ card_disabled }} </p>
+            </div>
+            <div class = "single_fare" >
+                <p> Single Ticket : {{ single_ticket }} </p>
+                <p> Single Children Ticket : {{ single_children }} </p>
+                <p> Single Elderly Ticket :  {{ single_elderly }} </p>
+            </div>
         </div>
-        <div class = "single_fare" >
-            <p> Single Ticket : {{ single_ticket }} </p>
-            <p> Single Children Ticket : {{ single_children }} </p>
-            <p> Single Elderly Ticket :  {{ single_elderly }} </p>
-        </div>
+        <div class = "show_fare_facilities" >
         {% if username != "Guest" %}
             <div class = "source_facilities">
             <h2> Barrier Free Facilities in concern in {{ source_station.English_Name }} Station </h2>
@@ -64,15 +67,16 @@
             {% endfor %}
             </div>
         {% endif %}
+        </div>
         <div class = "bottom-container" >
             <div> <a href = "{% url 'homepage' %}" > Home </a> </div>
             {% if username != "Guest" %}
-                <div> <p><a href = "account"> Account </a></p> </div>
-                <div> <p><a href = "logoff"> Logoff </a></p> </div>
+                <div> <a href = "/account"> Account </a> </div>
+                <div> <a href = "/logoff"> Logoff </a> </div>
             {% else %}
-                <div> <p><a href = "logon"> Logon </a></p> </div>
+                <div> <a href = "/logon"> Logon </a> </div>
             {% endif %}
-            <div> <p><a href = "register"> Register </a></p> </div>
+            <div> <a href = "/register"> Register </a> </div>
             {% if messages %}
                 <div class="alert alert-primary" role="alert">
                     {% for message in messages %}

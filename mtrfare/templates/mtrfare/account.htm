@@ -7,10 +7,11 @@
         {% load static %}
         <link rel="stylesheet" href="{% static 'mtrfare/style.css' %}">    </head>
     <body>
-        <div class = "header" >
+        <div class = "banner" >
             <h1> MTR Hong Kong fare and barrier free facilities search </h1>
             <p> Hello {{ username }} ! </p>
         </div>
+        <div class = "facilities" >
         <h2> Account page </h2>
         <form method = "post" action = "{% url 'preference' %}">
             {% csrf_token %}
@@ -67,6 +68,7 @@
                 </ul>
             {% endfor %}
             </form>
+        </div>
         </div>
         <a href = "{% url 'homepage' %}" > Home </a>
     </body>

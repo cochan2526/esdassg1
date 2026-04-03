@@ -1,7 +1,7 @@
 
 body
 {
-    font-size : 16px ;
+    font-size : 20px ;
 }
 
 button
@@ -39,13 +39,108 @@ select
     padding : 4px ;
 }
 
+/* banner */
+.banner
+{
+    display : flex ;
+    flex-direction: column;
+    justify-content: space-around ;
+    margin  : 15px ;
+    border  : 2 px solid ;
+    padding : 15px ;
+    gap     : 15px ;
+    width   : 100% ;
+    background-color : cyan ;
+}
+
+.banner h1
+{
+    text-align : center ;
+}
+
+/* middle_container */
+.middle_container
+{
+    display : flex ;
+    flex-direction: row;
+    justify-content: space-around ;
+    margin  : 15px ;
+    border  : 2 px solid ;
+    padding : 15px ;
+    gap     : 15px ;
+    background-color : AliceBlue ;
+    text-align : left ;
+}
+
+
+.middle_container div
+{
+    width : 25% ;
+    text-align: left ;
+}
+
+
+/* fare area */
+.fare_area
+{
+    display : flex ;
+    flex-direction: row;
+    justify-content: space-around ;
+    margin  : 15px ;
+    border  : 2 px solid ;
+    padding : 15px ;
+    gap     : 15px ;
+}
+.fare_area>div
+{
+    width : 50% ;
+    background-color : aqua  ;
+    margin  : 15px ;
+    border  : 2 px solid ;
+    padding : 15px ;
+    gap     : 15px ;
+}
+
+.facilities
+{
+    display : flex ;
+    flex-direction: column;
+    justify-content: space-around ;
+    background-color : BlanchedAlmond  ;
+    margin  : 15px ;
+    border  : 2 px solid ;
+    padding : 15px ;
+    gap     : 15px ;
+}
+
+.show_fare_facilities
+{
+    display : flex ;
+    flex-direction: row;
+    justify-content: space-around ;
+    background-color : BlanchedAlmond  ;
+    margin  : 15px ;
+    border  : 2 px solid ;
+    padding : 15px ;
+    gap     : 15px ;
+}
+
+.show_fare_facilities>div
+{
+    width : 50% ;
+    margin  : 15px ;
+    border  : 2 px solid ;
+    padding : 15px ;
+    gap     : 15px ;
+}
+
+
 /* bottom container */
 .bottom-container
 {
     /* set display to flex */
     display : flex ;
-/*    flex-direction: row; */
-    flex-flow: row wrap;
+    flex-direction: row;
     justify-content: space-around ;
     background-color : azure  ;
     margin  : 15px ;
@@ -57,7 +152,7 @@ select
 .bottom-container>div
 {
     width : 25% ;
-    text-align: center ;
+    text-align: left ;
 }
 
 .alert alert-primary

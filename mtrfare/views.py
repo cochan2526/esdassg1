@@ -44,7 +44,9 @@ def showfare ( request ) :
 
 def register ( request ) :
 
-    return ( render ( request , "mtrfare/register.htm" ) )
+    username = userORguest ( request )
+
+    return ( render ( request , "mtrfare/register.htm" , { "user_name" : username } ) )
 
 def registering ( request ) :
 

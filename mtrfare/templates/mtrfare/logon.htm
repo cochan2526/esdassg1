@@ -8,16 +8,19 @@
         <link rel="stylesheet" href="{% static 'mtrfare/style.css' %}">
     </head>
     <body>
-        <div class = "header" >
+        <div class = "banner" >
             <h1> MTR Hong Kong fare and barrier free facilities search </h1>
             <p> Hello {{ user_name }} ! </p>
         </div>
-        <form method ="post" action ="{% url 'logging_on' %}">
-            {% csrf_token %}
-            <p> username : <input name ="username" value ="{{ username }}"> </p>
-            <p> password : <input type = "password" name ="password" value ="{{ password }}"> </p>
-            <button type ="submit"> Login </button>
-        </form>
+        <div class = "middle_container" >
+            <form method ="post" action ="{% url 'logging_on' %}">
+                {% csrf_token %}
+                <p> username : <input name ="username" value ="{{ username }}"> </p>
+                <p> password : <input type = "password" name ="password" value ="{{ password }}"> </p>
+                <button type ="submit"> Login </button>
+            </form>
+        </div>
+        <div> <a href = "{% url 'homepage' %}" > Home </a> </div>
         {% if messages %}
             <div class="alert alert-primary" role="alert">
                 {% for message in messages %}
