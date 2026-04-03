@@ -4,10 +4,14 @@
         <meta charset ="utf-8">
         <meta name ="viewport" content ="width=device-width , initial-scale=1">
         <title> MTR Hong Kong Fare and Barrier Free Facilities -- Barrier Free Facilities in {{ station.English_Name }} Station </title>
-        </head>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'mtrfare/style.css' %}">
+    </head>
     <body>
-        <h1> MTR Hong Kong fare and barrier free facilities search </h1>
-        <p> Hello {{ username }} ! </p>
+        <div class = "header" >
+            <h1> MTR Hong Kong fare and barrier free facilities search </h1>
+            <p> Hello {{ username }} ! </p>
+        </div>
         <div class = "Title" >
             <h2> Barrier free facilities in the {{ station.English_Name }} station</h2>
         </div>

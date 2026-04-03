@@ -4,10 +4,14 @@
         <meta charset ="utf-8">
         <meta name ="viewport" content ="width=device-width , initial-scale=1">
         <title> MTR Hong Kong Fare and Barrier Free Facilities -- Register </title>
-        </head>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'mtrfare/style.css' %}">
+    </head>
     <body>
-        <h1> MTR Hong Kong fare and barrier free facilities search </h1>
-        <h2> Register page </h2>
+        <div class = "header" >
+            <h1> MTR Hong Kong fare and barrier free facilities search </h1>
+            <p> Hello {{ username }} ! </p>
+        </div>
         <form method ="post" action ="{% url 'registering' %}">
             {% csrf_token %}
             <p> username : <input name ="username" value ="{{ username }}"> </p>

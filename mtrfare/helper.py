@@ -17,11 +17,13 @@ import json
 __all__ = [ "registering_user" ,
             "logging_on_user" ,
             "showing_fare" ,
-#             "userORguest" ,
+            "userORguest" ,
             "showing_homepage" ,
             "diplay_barrfac" ,
             "str2int" ,
             "getUserPref" ,
+            "show_account" ,
+            "process_preference" ,
           ]
 
 #
@@ -358,5 +360,100 @@ def diplay_barrfac ( request , station_id ) :
                 "facilities" : facilities }
 
     return ( context )
+
+#
+#    Build the context for showing of account page
+#
+def show_account ( request ) :
+    username = request.user.username ;
+
+    stations = Station.objects.all ( )
+
+    userPref = getUserPref ( request )
+
+    #
+    #    build the dictionary for list of barrier free facilities
+    #
+
+    barrcat = BarrCat.objects.all ( )
+    facilities = {}
+
+    index = len ( barrcat )
+    while index :
+        index = index - 1
+        barrcat_item = barrcat[ index ]
+        item_cat_en = barrcat_item.Category_En
+
+        #
+        #    do the prefer categoy and facility check
+        #
+        pref_category = False
+        pref_facility = False
+        index2 = len ( userPref [ "Category" ] )
+        while index2 :
+            index2 = index2 - 1
+            if ( barrcat_item.Category_Id == userPref [ "Category" ] [ index2 ] ) :
+                pref_category = True
+                index2= 0 # Break the loop instantly
+
+        index2 = len ( userPref [ "Facility" ] )
+        while index2 :
+            index2 = index2 - 1
+            if ( barrcat_item.Item_Code == userPref [ "Facility" ] [ index2 ] ) :
+                pref_facility = True
+                index2= 0 # Break the loop instantly
+
+        facilities_by_cat = facilities.get ( item_cat_en , [] )
+        facilities_by_cat.append ( {
+            "Item_Code" : barrcat_item.Item_Code ,
+            "Category_Id" : barrcat_item.Category_Id ,
+            "Facility_En" : barrcat_item.Facility_En ,
+            "Pref_Category" : pref_category ,
+            "Pref_Facility" : pref_facility ,
+            } )
+        facilities [ item_cat_en ] = facilities_by_cat
+
+    context = {
+        "username"     : username ,
+        "station_list" : stations ,
+        "userPref"     : userPref ,
+        "facilities"   : facilities ,
+    }
+
+    return ( context )
+
+#
+#    process the preference request
+#
+def process_preference ( request ) :
+
+    username = request.user.username
+
+# How to get checkbox values in django application
+# https://stackoverflow.com/questions/48735726/how-to-get-checkbox-values-in-django-application
+
+    barrcat = request.POST.getlist ( "BarrCat" )
+    barrfac = request.POST.getlist ( "BarrFac" )
+
+    if ( len ( username ) ) :
+
+        pref_source_station = str2int ( request.POST.get ( "Preference Source Station" , 0 ) , 0 )
+        pref_dest_station = str2int ( request.POST.get ( "Preference Destionation Staion" , 0 ) , 0 )
+
+        #
+        #    check if preference selected is empty
+        #
+        if ( ( pref_source_station > 0 ) or 
+             ( pref_dest_station > 0 )  or
+             ( len ( barrcat ) > 0 ) or
+             ( len ( barrfac ) > 0 ) ) :
+            UserPref.objects.update_or_create(
+                User = request.user ,
+                defaults={
+                    "Pref_source_station_id" : pref_source_station ,
+                    "Pref_dest_station_id" : pref_dest_station ,
+                    "Pref_barrier_free_facilities" : json.dumps ( { "Category" : barrcat , "Facility" : barrfac } )
+                },
+            )
 
 

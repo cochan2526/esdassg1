@@ -1,0 +1,230 @@
+
+body
+{
+    font-size : 16px ;
+}
+
+button
+{
+    margin : 5px ;
+}
+
+select
+{
+    margin : 5px ;
+    min-width : 100px ;
+}
+
+/* global setting above */
+
+/* top container */
+.top-container
+{
+    /* set display to flex */
+    display : flex ;
+    flex-direction: row;
+    justify-content: space-around ;
+    background-color : AntiqueWhite  ;
+    margin  : 4px ;
+    border  : 2 px solid ;
+    padding : 4px ;
+    gap     : 4px ;
+}
+
+.top-container div
+{
+    item-align : center ;
+    width   : 20% ;
+    margin  : 4px ;
+    padding : 4px ;
+}
+
+/* bottom container */
+.bottom-container
+{
+    /* set display to flex */
+    display : flex ;
+/*    flex-direction: row; */
+    flex-flow: row wrap;
+    justify-content: space-around ;
+    background-color : azure  ;
+    margin  : 15px ;
+    border  : 2 px solid ;
+    padding : 15px ;
+    gap     : 15px ;
+}
+
+.bottom-container>div
+{
+    width : 25% ;
+    text-align: center ;
+}
+
+.alert alert-primary
+{
+    width : 100% ;
+}
+
+#system
+{
+    background-color : lime ;
+    width : 90% ;
+    height : 150px ;
+    border : 2px solid black ;
+    margin : 5px ;
+    padding : 5px ;
+    overflow : scroll ;
+}
+
+/* Private Message Box (class level) */
+.publicMsgArea
+{
+    background-color : aqua ;
+    width : 90% ;
+    height : 200px ;
+    border : 2px solid black ;
+    margin : 5px ;
+    padding : 5px ;
+    overflow : scroll ;
+}
+
+/* old public message will be dark green */
+.publicMsgArea>.old
+{
+    text-align : left ;
+    color : darkgreen ;
+}
+
+/* new public message will be at right and blue */
+.publicMsgArea>.new
+{
+    text-align : left ;
+    color : blue ;
+}
+
+/* Private Message Box (class level) */
+.privateMsgArea
+{
+    background-color : lightgrey ;
+    width : 90% ;
+    height : 200px ;
+    border : 2px solid black ;
+    margin : 5px ;
+    padding : 5px ;
+    overflow : scroll ;
+}
+
+/* Incoming private message will be at left and green */
+.privateMsgArea>.incoming
+{
+    text-align : left ;
+    color : green ;
+}
+
+/* Outgoing private message will be at right and blue */
+.privateMsgArea>.outgoing
+{
+    text-align : right ;
+    color : blue ;
+}
+
+/* narrow screen setting below */
+@media only screen and (max-width: 640px)
+{
+    /* top container */
+    .top-container
+    {
+        /* set display to flex */
+        display : flex ;
+        flex-direction: column ;
+        justify-content: space-around ;
+        background-color : AntiqueWhite  ;
+        margin  : 15px ;
+        border  : 2 px solid ;
+        padding : 15px ;
+        gap     : 15px ;
+    }
+
+    .top-container div
+    {
+        item-align : center ;
+        width   : 90% ;
+        margin  : 15px ;
+        padding : 15px ;
+    }
+
+
+    /* bottom container */
+    .bottom-container
+    {
+        /* set display to flex */
+        display : flex ;
+        flex-direction: column;
+        justify-content: space-around ;
+        background-color : azure  ;
+        margin  : 15px ;
+        border  : 2 px solid ;
+        padding : 15px ;
+        gap     : 15px ;
+    }
+    
+    .bottom-container>div
+    {
+        width : 95% ;
+    }
+
+    /* system message area */
+    #system
+    {
+        background-color : lime ;
+        width : 95% ;
+        height : 150px ;
+        border : 2px solid black ;
+        margin : 5px ;
+        padding : 5px ;
+        overflow : scroll ;
+    }
+
+
+    /* Public Message Box (class level) */
+    .publicMsgArea
+    {
+        background-color : aqua ;
+        width : 95% ;
+        height : 200px ;
+        border : 2px solid black ;
+        margin : 5px ;
+        padding : 5px ;
+        overflow : scroll ;
+    }
+    
+    /* Private Message Box (class level) */
+    .privateMsgArea
+    {
+        background-color : lightgrey ;
+        width : 95% ;
+        height : 200px ;
+        border : 2px solid black ;
+        margin : 5px ;
+        padding : 5px ;
+        overflow : scroll ;
+    }
+    
+    /* Incoming private message will be at left and green */
+    .privateMsgArea>.incoming
+    {
+        text-align : left ;
+        color : green ;
+    }
+    
+    /* Outgoing private message will be at right and blue */
+    .privateMsgArea>.outgoing
+    {
+        text-align : right ;
+        color : blue ;
+    }
+    
+
+}
+
+
