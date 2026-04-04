@@ -1,8 +1,46 @@
 # Enterprise Software Development 2025 - 2026 Assignment 1  .md
 
+## Install and run
+#### by extracting from zip file, or by cloning from GitHub.com as the following command ( if git is installed ) :-
+git clone https://github.com/cochan2526/esdassg1.git
+application is stored in the directory "esdassg1"
+By changing the directory into the "esdassg1" , the file "manage.py" can be found.
+
+#### Create the environment
+Create virtual environment by the following command :-
+python3 -m venv .venv
+( or python -m venv .venv )
+
+#### Activate the environment
+Activate the virtual environment by :-
+source .venv/bin/activate
+( or .venv\Scripts\activate.bat in Windows )
+
+#### Install packages required
+Install packages ( Django ) required
+pip install -r requirements.txt
+
+#### Start the application
+Application can now be run by the following command :-
+python manage.py runserver [any port number free for use]
+
+#### Accessing the application
+And now the program is now can be accessed by browser at the address "localhost[:port number entered]"
+
 ## Deployment
-Application also deployed to pythonanywhere.com at the following address:
-https://nitorishuuichi.pythonanywhere.com/
+Application is also deployed to pythonanywhere.com at the following address:
+"https://nitorishuuichi.pythonanywhere.com/"
+
+## Usage of the application
+When the website is accessed, user can search the fare between stations by selecting
+the departing and destination station and click on "Get fare" button.
+
+
+Fare
+"https://www.mtr.com.hk/en/customer/tickets/index.php"
+
+Barrier free facilities
+"https://www.mtr.com.hk/en/customer/services/free_search.php?query_type=search&station=1&disable_search=#searchResult"
 
 ## Reference
 ## user authentication System using django
@@ -11,18 +49,35 @@ referencing https://www.geeksforgeeks.org/python/user-authentication-system-usin
 logout referencing https://docs.djangoproject.com/en/6.0/topics/auth/default/
 
 ## for use of "import *"
-referencing https://stackoverflow.com/a/6761908
+Referencing "https://stackoverflow.com/a/6761908"
 
 ## get checkbox values in django application as a list
-referencing https://stackoverflow.com/questions/48735726/how-to-get-checkbox-values-in-django-application
+Referencing "https://stackoverflow.com/questions/48735726/how-to-get-checkbox-values-in-django-application"
 
 ### helper.py
-sub functions used in views.py
-to make views.py more clear and easy to read
+Sub functions used in views.py
+In order to make views.py more clear and easy to read.
 
 ## Data used in this project is obtained from data.gov.hk,
 ## provided by MTR Corporation Limited of Hong Kong
-## T & C of using data from data.gov.hk
+
+Open data is download from "http://https://data.gov.hk/en-data/dataset/mtr-data-routes-fares-barrier-free-facilities/" , 
+data used are "MTR Lines (except Light Rail) & Stations" , "Barrier Free Access 
+Category" , "Barrier Free Access in MTR stations" and "MTR Lines (except 
+Airport Express & Light Rail) Fares".
+
+MTR is the subway system in Hong Kong which is started to be built from the
+1970s.
+
+As there is 96 stations in the data and thus the total number of fare record 
+is square of 96 = 9,216, in otder to make the size of the data small enough and
+keep the application simple, I trimmed down to the earliest stage of the system 
+which is the first 2 lines ( Kwun Tong Line and Tsuen Wan Line ) , 25 stations
+in total, with station number ranged from 1 to 25. I further remove records of
+same stations and half of the records as the fare is the same for opposite
+direction, and final number of records is down to 25*24/2 = 300.
+
+Below is extract of T & C of using data from data.gov.hk
 
 On 2026-04-04
 
