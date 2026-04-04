@@ -1,51 +1,51 @@
 SRC_STATION_NAME,SRC_STATION_ID,DEST_STATION_NAME,DEST_STATION_ID,OCT_ADT_FARE,OCT_STD_FARE,OCT_JOYYOU_SIXTY_FARE,SINGLE_ADT_FARE,OCT_CON_CHILD_FARE,OCT_CON_ELDERLY_FARE,OCT_CON_PWD_FARE,SINGLE_CON_CHILD_FARE,SINGLE_CON_ELDERLY_FARE
 Central,1,Admiralty,2,4.9,3.2,2,5,3.2,2,2,3.5,3.5
-Central,1,Tsim Sha Tsui,3,10.6,5.4,2,12.5,5.4,2,2,5.5,5.5
-Central,1,Jordan,4,10.6,5.4,2,12.5,5.4,2,2,5.5,5.5
-Central,1,Yau Ma Tei,5,13.2,6.5,2,15.5,6.5,2,2,6.5,6.5
-Central,1,Mong Kok,6,13.2,6.5,2,15.5,6.5,2,2,6.5,6.5
-Central,1,Shek Kip Mei,7,13.2,6.5,2,15.5,6.5,2,2,6.5,6.5
-Central,1,Kowloon Tong,8,13.2,6.5,2,15.5,6.5,2,2,6.5,6.5
-Central,1,Lok Fu,9,15.8,7.4,2,16,7.4,2,2,7.5,7.5
-Central,1,Wong Tai Sin,10,15.8,7.4,2,16,7.4,2,2,7.5,7.5
-Central,1,Diamond Hill,11,15.8,7.4,2,16,7.4,2,2,7.5,7.5
-Central,1,Choi Hung,12,15.8,7.4,2,16,7.4,2,2,7.5,7.5
-Central,1,Kowloon Bay,13,15.8,7.4,2,16,7.4,2,2,7.5,7.5
-Central,1,Ngau Tau Kok,14,15.8,7.4,2,16,7.4,2,2,7.5,7.5
-Central,1,Kwun Tong,15,15.8,7.4,2,16,7.4,2,2,7.5,7.5
-Central,1,Prince Edward,16,13.2,6.5,2,15.5,6.5,2,2,6.5,6.5
-Central,1,Sham Shui Po,17,13.2,6.5,2,15.5,6.5,2,2,6.5,6.5
-Central,1,Cheung Sha Wan,18,13.2,6.5,2,15.5,6.5,2,2,6.5,6.5
-Central,1,Lai Chi Kok,19,15.8,7.4,2,16,7.4,2,2,7.5,7.5
-Central,1,Mei Foo,20,15.8,7.4,2,16,7.4,2,2,7.5,7.5
-Central,1,Lai King,21,15.8,7.4,2,16,7.4,2,2,7.5,7.5
-Central,1,Kwai Fong,22,15.8,7.4,2,16,7.4,2,2,7.5,7.5
-Central,1,Kwai Hing,23,15.8,7.4,2,16,7.4,2,2,7.5,7.5
-Central,1,Tai Wo Hau,24,15.8,7.4,2,16,7.4,2,2,7.5,7.5
-Central,1,Tsuen Wan,25,15.8,7.4,2,16,7.4,2,2,7.5,7.5
-Admiralty,2,Tsim Sha Tsui,3,10.6,5.4,2,12.5,5.4,2,2,5.5,5.5
-Admiralty,2,Jordan,4,10.6,5.4,2,12.5,5.4,2,2,5.5,5.5
-Admiralty,2,Yau Ma Tei,5,13.2,6.5,2,15.5,6.5,2,2,6.5,6.5
-Admiralty,2,Mong Kok,6,13.2,6.5,2,15.5,6.5,2,2,6.5,6.5
-Admiralty,2,Shek Kip Mei,7,13.2,6.5,2,15.5,6.5,2,2,6.5,6.5
-Admiralty,2,Kowloon Tong,8,13.2,6.5,2,15.5,6.5,2,2,6.5,6.5
-Admiralty,2,Lok Fu,9,15.8,7.4,2,16,7.4,2,2,7.5,7.5
-Admiralty,2,Wong Tai Sin,10,15.8,7.4,2,16,7.4,2,2,7.5,7.5
-Admiralty,2,Diamond Hill,11,15.8,7.4,2,16,7.4,2,2,7.5,7.5
-Admiralty,2,Choi Hung,12,15.8,7.4,2,16,7.4,2,2,7.5,7.5
-Admiralty,2,Kowloon Bay,13,15.8,7.4,2,16,7.4,2,2,7.5,7.5
-Admiralty,2,Ngau Tau Kok,14,15.8,7.4,2,16,7.4,2,2,7.5,7.5
-Admiralty,2,Kwun Tong,15,15.8,7.4,2,16,7.4,2,2,7.5,7.5
-Admiralty,2,Prince Edward,16,13.2,6.5,2,15.5,6.5,2,2,6.5,6.5
-Admiralty,2,Sham Shui Po,17,13.2,6.5,2,15.5,6.5,2,2,6.5,6.5
-Admiralty,2,Cheung Sha Wan,18,13.2,6.5,2,15.5,6.5,2,2,6.5,6.5
-Admiralty,2,Lai Chi Kok,19,15.8,7.4,2,16,7.4,2,2,7.5,7.5
-Admiralty,2,Mei Foo,20,15.8,7.4,2,16,7.4,2,2,7.5,7.5
-Admiralty,2,Lai King,21,15.8,7.4,2,16,7.4,2,2,7.5,7.5
-Admiralty,2,Kwai Fong,22,15.8,7.4,2,16,7.4,2,2,7.5,7.5
-Admiralty,2,Kwai Hing,23,15.8,7.4,2,16,7.4,2,2,7.5,7.5
-Admiralty,2,Tai Wo Hau,24,15.8,7.4,2,16,7.4,2,2,7.5,7.5
-Admiralty,2,Tsuen Wan,25,15.8,7.4,2,16,7.4,2,2,7.5,7.5
+Central,1,Tsim Sha Tsui,3,10.6,5.4,2.1,12.5,5.4,2.1,2.1,5.5,5.5
+Central,1,Jordan,4,10.6,5.4,2.1,12.5,5.4,2.1,2.1,5.5,5.5
+Central,1,Yau Ma Tei,5,13.2,6.5,2.6,15.5,6.5,2.6,2.6,6.5,6.5
+Central,1,Mong Kok,6,13.2,6.5,2.6,15.5,6.5,2.6,2.6,6.5,6.5
+Central,1,Shek Kip Mei,7,13.2,6.5,2.6,15.5,6.5,2.6,2.6,6.5,6.5
+Central,1,Kowloon Tong,8,13.2,6.5,2.6,15.5,6.5,2.6,2.6,6.5,6.5
+Central,1,Lok Fu,9,15.8,7.4,3.2,16,7.4,3.2,3.2,7.5,7.5
+Central,1,Wong Tai Sin,10,15.8,7.4,3.2,16,7.4,3.2,3.2,7.5,7.5
+Central,1,Diamond Hill,11,15.8,7.4,3.2,16,7.4,3.2,3.2,7.5,7.5
+Central,1,Choi Hung,12,15.8,7.4,3.2,16,7.4,3.2,3.2,7.5,7.5
+Central,1,Kowloon Bay,13,15.8,7.4,3.2,16,7.4,3.2,3.2,7.5,7.5
+Central,1,Ngau Tau Kok,14,15.8,7.4,3.2,16,7.4,3.2,3.2,7.5,7.5
+Central,1,Kwun Tong,15,15.8,7.4,3.2,16,7.4,3.2,3.2,7.5,7.5
+Central,1,Prince Edward,16,13.2,6.5,2.6,15.5,6.5,2.6,2.6,6.5,6.5
+Central,1,Sham Shui Po,17,13.2,6.5,2.6,15.5,6.5,2.6,2.6,6.5,6.5
+Central,1,Cheung Sha Wan,18,13.2,6.5,2.6,15.5,6.5,2.6,2.6,6.5,6.5
+Central,1,Lai Chi Kok,19,15.8,7.4,3.2,16,7.4,3.2,3.2,7.5,7.5
+Central,1,Mei Foo,20,15.8,7.4,3.2,16,7.4,3.2,3.2,7.5,7.5
+Central,1,Lai King,21,15.8,7.4,3.2,16,7.4,3.2,3.2,7.5,7.5
+Central,1,Kwai Fong,22,15.8,7.4,3.2,16,7.4,3.2,3.2,7.5,7.5
+Central,1,Kwai Hing,23,15.8,7.4,3.2,16,7.4,3.2,3.2,7.5,7.5
+Central,1,Tai Wo Hau,24,15.8,7.4,3.2,16,7.4,3.2,3.2,7.5,7.5
+Central,1,Tsuen Wan,25,15.8,7.4,3.2,16,7.4,3.2,3.2,7.5,7.5
+Admiralty,2,Tsim Sha Tsui,3,10.6,5.4,2.1,12.5,5.4,2.1,2.1,5.5,5.5
+Admiralty,2,Jordan,4,10.6,5.4,2.1,12.5,5.4,2.1,2.1,5.5,5.5
+Admiralty,2,Yau Ma Tei,5,13.2,6.5,2.6,15.5,6.5,2.6,2.6,6.5,6.5
+Admiralty,2,Mong Kok,6,13.2,6.5,2.6,15.5,6.5,2.6,2.6,6.5,6.5
+Admiralty,2,Shek Kip Mei,7,13.2,6.5,2.6,15.5,6.5,2.6,2.6,6.5,6.5
+Admiralty,2,Kowloon Tong,8,13.2,6.5,2.6,15.5,6.5,2.6,2.6,6.5,6.5
+Admiralty,2,Lok Fu,9,15.8,7.4,3.2,16,7.4,3.2,3.2,7.5,7.5
+Admiralty,2,Wong Tai Sin,10,15.8,7.4,3.2,16,7.4,3.2,3.2,7.5,7.5
+Admiralty,2,Diamond Hill,11,15.8,7.4,3.2,16,7.4,3.2,3.2,7.5,7.5
+Admiralty,2,Choi Hung,12,15.8,7.4,3.2,16,7.4,3.2,3.2,7.5,7.5
+Admiralty,2,Kowloon Bay,13,15.8,7.4,3.2,16,7.4,3.2,3.2,7.5,7.5
+Admiralty,2,Ngau Tau Kok,14,15.8,7.4,3.2,16,7.4,3.2,3.2,7.5,7.5
+Admiralty,2,Kwun Tong,15,15.8,7.4,3.2,16,7.4,3.2,3.2,7.5,7.5
+Admiralty,2,Prince Edward,16,13.2,6.5,2.6,15.5,6.5,2.6,2.6,6.5,6.5
+Admiralty,2,Sham Shui Po,17,13.2,6.5,2.6,15.5,6.5,2.6,2.6,6.5,6.5
+Admiralty,2,Cheung Sha Wan,18,13.2,6.5,2.6,15.5,6.5,2.6,2.6,6.5,6.5
+Admiralty,2,Lai Chi Kok,19,15.8,7.4,3.2,16,7.4,3.2,3.2,7.5,7.5
+Admiralty,2,Mei Foo,20,15.8,7.4,3.2,16,7.4,3.2,3.2,7.5,7.5
+Admiralty,2,Lai King,21,15.8,7.4,3.2,16,7.4,3.2,3.2,7.5,7.5
+Admiralty,2,Kwai Fong,22,15.8,7.4,3.2,16,7.4,3.2,3.2,7.5,7.5
+Admiralty,2,Kwai Hing,23,15.8,7.4,3.2,16,7.4,3.2,3.2,7.5,7.5
+Admiralty,2,Tai Wo Hau,24,15.8,7.4,3.2,16,7.4,3.2,3.2,7.5,7.5
+Admiralty,2,Tsuen Wan,25,15.8,7.4,3.2,16,7.4,3.2,3.2,7.5,7.5
 Tsim Sha Tsui,3,Jordan,4,4.9,3.2,2,5,3.2,2,2,3.5,3.5
 Tsim Sha Tsui,3,Yau Ma Tei,5,4.9,3.2,2,5,3.2,2,2,3.5,3.5
 Tsim Sha Tsui,3,Mong Kok,6,5.9,3.2,2,6,3.2,2,2,3.5,3.5
@@ -63,11 +63,11 @@ Tsim Sha Tsui,3,Sham Shui Po,17,7.4,3.7,2,7.5,3.7,2,2,4,4
 Tsim Sha Tsui,3,Cheung Sha Wan,18,7.4,3.7,2,7.5,3.7,2,2,4,4
 Tsim Sha Tsui,3,Lai Chi Kok,19,9,3.9,2,10.5,3.9,2,2,4,4
 Tsim Sha Tsui,3,Mei Foo,20,9,3.9,2,10.5,3.9,2,2,4,4
-Tsim Sha Tsui,3,Lai King,21,11,4.9,2,13,4.9,2,2,5,5
-Tsim Sha Tsui,3,Kwai Fong,22,11,4.9,2,13,4.9,2,2,5,5
-Tsim Sha Tsui,3,Kwai Hing,23,11,4.9,2,13,4.9,2,2,5,5
-Tsim Sha Tsui,3,Tai Wo Hau,24,11,4.9,2,13,4.9,2,2,5,5
-Tsim Sha Tsui,3,Tsuen Wan,25,11,4.9,2,13,4.9,2,2,5,5
+Tsim Sha Tsui,3,Lai King,21,11,4.9,2.2,13,4.9,2.2,2.2,5,5
+Tsim Sha Tsui,3,Kwai Fong,22,11,4.9,2.2,13,4.9,2.2,2.2,5,5
+Tsim Sha Tsui,3,Kwai Hing,23,11,4.9,2.2,13,4.9,2.2,2.2,5,5
+Tsim Sha Tsui,3,Tai Wo Hau,24,11,4.9,2.2,13,4.9,2.2,2.2,5,5
+Tsim Sha Tsui,3,Tsuen Wan,25,11,4.9,2.2,13,4.9,2.2,2.2,5,5
 Jordan,4,Yau Ma Tei,5,4.9,3.2,2,5,3.2,2,2,3.5,3.5
 Jordan,4,Mong Kok,6,4.9,3.2,2,5,3.2,2,2,3.5,3.5
 Jordan,4,Shek Kip Mei,7,5.9,3.2,2,6,3.2,2,2,3.5,3.5
@@ -85,10 +85,10 @@ Jordan,4,Cheung Sha Wan,18,7.4,3.7,2,7.5,3.7,2,2,4,4
 Jordan,4,Lai Chi Kok,19,7.4,3.7,2,7.5,3.7,2,2,4,4
 Jordan,4,Mei Foo,20,9,3.9,2,10.5,3.9,2,2,4,4
 Jordan,4,Lai King,21,9.2,4.4,2,10.5,4.4,2,2,4.5,4.5
-Jordan,4,Kwai Fong,22,11,4.9,2,13,4.9,2,2,5,5
-Jordan,4,Kwai Hing,23,11,4.9,2,13,4.9,2,2,5,5
-Jordan,4,Tai Wo Hau,24,11,4.9,2,13,4.9,2,2,5,5
-Jordan,4,Tsuen Wan,25,11,4.9,2,13,4.9,2,2,5,5
+Jordan,4,Kwai Fong,22,11,4.9,2.2,13,4.9,2.2,2.2,5,5
+Jordan,4,Kwai Hing,23,11,4.9,2.2,13,4.9,2.2,2.2,5,5
+Jordan,4,Tai Wo Hau,24,11,4.9,2.2,13,4.9,2.2,2.2,5,5
+Jordan,4,Tsuen Wan,25,11,4.9,2.2,13,4.9,2.2,2.2,5,5
 Yau Ma Tei,5,Mong Kok,6,4.9,3.2,2,5,3.2,2,2,3.5,3.5
 Yau Ma Tei,5,Shek Kip Mei,7,5.9,3.2,2,6,3.2,2,2,3.5,3.5
 Yau Ma Tei,5,Kowloon Tong,8,5.9,3.2,2,6,3.2,2,2,3.5,3.5
@@ -106,9 +106,9 @@ Yau Ma Tei,5,Lai Chi Kok,19,7.4,3.7,2,7.5,3.7,2,2,4,4
 Yau Ma Tei,5,Mei Foo,20,7.4,3.7,2,7.5,3.7,2,2,4,4
 Yau Ma Tei,5,Lai King,21,9.2,4.4,2,10.5,4.4,2,2,4.5,4.5
 Yau Ma Tei,5,Kwai Fong,22,9.2,4.4,2,10.5,4.4,2,2,4.5,4.5
-Yau Ma Tei,5,Kwai Hing,23,11,4.9,2,13,4.9,2,2,5,5
-Yau Ma Tei,5,Tai Wo Hau,24,11,4.9,2,13,4.9,2,2,5,5
-Yau Ma Tei,5,Tsuen Wan,25,11,4.9,2,13,4.9,2,2,5,5
+Yau Ma Tei,5,Kwai Hing,23,11,4.9,2.2,13,4.9,2.2,2.2,5,5
+Yau Ma Tei,5,Tai Wo Hau,24,11,4.9,2.2,13,4.9,2.2,2.2,5,5
+Yau Ma Tei,5,Tsuen Wan,25,11,4.9,2.2,13,4.9,2.2,2.2,5,5
 Mong Kok,6,Shek Kip Mei,7,4.9,3.2,2,5,3.2,2,2,3.5,3.5
 Mong Kok,6,Kowloon Tong,8,5.9,3.2,2,6,3.2,2,2,3.5,3.5
 Mong Kok,6,Lok Fu,9,5.9,3.2,2,6,3.2,2,2,3.5,3.5
@@ -177,8 +177,8 @@ Lok Fu,9,Mei Foo,20,7.4,3.7,2,7.5,3.7,2,2,4,4
 Lok Fu,9,Lai King,21,9.2,4.4,2,10.5,4.4,2,2,4.5,4.5
 Lok Fu,9,Kwai Fong,22,9.2,4.4,2,10.5,4.4,2,2,4.5,4.5
 Lok Fu,9,Kwai Hing,23,9.2,4.4,2,10.5,4.4,2,2,4.5,4.5
-Lok Fu,9,Tai Wo Hau,24,11,4.9,2,13,4.9,2,2,5,5
-Lok Fu,9,Tsuen Wan,25,11,4.9,2,13,4.9,2,2,5,5
+Lok Fu,9,Tai Wo Hau,24,11,4.9,2.2,13,4.9,2.2,2.2,5,5
+Lok Fu,9,Tsuen Wan,25,11,4.9,2.2,13,4.9,2.2,2.2,5,5
 Wong Tai Sin,10,Diamond Hill,11,4.9,3.2,2,5,3.2,2,2,3.5,3.5
 Wong Tai Sin,10,Choi Hung,12,4.9,3.2,2,5,3.2,2,2,3.5,3.5
 Wong Tai Sin,10,Kowloon Bay,13,5.9,3.2,2,6,3.2,2,2,3.5,3.5
@@ -191,9 +191,9 @@ Wong Tai Sin,10,Lai Chi Kok,19,7.4,3.7,2,7.5,3.7,2,2,4,4
 Wong Tai Sin,10,Mei Foo,20,9.2,4.4,2,10.5,4.4,2,2,4.5,4.5
 Wong Tai Sin,10,Lai King,21,9.2,4.4,2,10.5,4.4,2,2,4.5,4.5
 Wong Tai Sin,10,Kwai Fong,22,9.2,4.4,2,10.5,4.4,2,2,4.5,4.5
-Wong Tai Sin,10,Kwai Hing,23,11,4.9,2,13,4.9,2,2,5,5
-Wong Tai Sin,10,Tai Wo Hau,24,11,4.9,2,13,4.9,2,2,5,5
-Wong Tai Sin,10,Tsuen Wan,25,11,4.9,2,13,4.9,2,2,5,5
+Wong Tai Sin,10,Kwai Hing,23,11,4.9,2.2,13,4.9,2.2,2.2,5,5
+Wong Tai Sin,10,Tai Wo Hau,24,11,4.9,2.2,13,4.9,2.2,2.2,5,5
+Wong Tai Sin,10,Tsuen Wan,25,11,4.9,2.2,13,4.9,2.2,2.2,5,5
 Diamond Hill,11,Choi Hung,12,4.9,3.2,2,5,3.2,2,2,3.5,3.5
 Diamond Hill,11,Kowloon Bay,13,4.9,3.2,2,5,3.2,2,2,3.5,3.5
 Diamond Hill,11,Ngau Tau Kok,14,5.9,3.2,2,6,3.2,2,2,3.5,3.5
@@ -204,10 +204,10 @@ Diamond Hill,11,Cheung Sha Wan,18,7.4,3.7,2,7.5,3.7,2,2,4,4
 Diamond Hill,11,Lai Chi Kok,19,9.2,4.4,2,10.5,4.4,2,2,4.5,4.5
 Diamond Hill,11,Mei Foo,20,9.2,4.4,2,10.5,4.4,2,2,4.5,4.5
 Diamond Hill,11,Lai King,21,9.2,4.4,2,10.5,4.4,2,2,4.5,4.5
-Diamond Hill,11,Kwai Fong,22,11,4.9,2,13,4.9,2,2,5,5
-Diamond Hill,11,Kwai Hing,23,11,4.9,2,13,4.9,2,2,5,5
-Diamond Hill,11,Tai Wo Hau,24,11,4.9,2,13,4.9,2,2,5,5
-Diamond Hill,11,Tsuen Wan,25,11,4.9,2,13,4.9,2,2,5,5
+Diamond Hill,11,Kwai Fong,22,11,4.9,2.2,13,4.9,2.2,2.2,5,5
+Diamond Hill,11,Kwai Hing,23,11,4.9,2.2,13,4.9,2.2,2.2,5,5
+Diamond Hill,11,Tai Wo Hau,24,11,4.9,2.2,13,4.9,2.2,2.2,5,5
+Diamond Hill,11,Tsuen Wan,25,11,4.9,2.2,13,4.9,2.2,2.2,5,5
 Choi Hung,12,Kowloon Bay,13,4.9,3.2,2,5,3.2,2,2,3.5,3.5
 Choi Hung,12,Ngau Tau Kok,14,4.9,3.2,2,5,3.2,2,2,3.5,3.5
 Choi Hung,12,Kwun Tong,15,4.9,3.2,2,5,3.2,2,2,3.5,3.5
@@ -216,44 +216,44 @@ Choi Hung,12,Sham Shui Po,17,7.4,3.7,2,7.5,3.7,2,2,4,4
 Choi Hung,12,Cheung Sha Wan,18,9.2,4.4,2,10.5,4.4,2,2,4.5,4.5
 Choi Hung,12,Lai Chi Kok,19,9.2,4.4,2,10.5,4.4,2,2,4.5,4.5
 Choi Hung,12,Mei Foo,20,9.2,4.4,2,10.5,4.4,2,2,4.5,4.5
-Choi Hung,12,Lai King,21,11,4.9,2,13,4.9,2,2,5,5
-Choi Hung,12,Kwai Fong,22,11,4.9,2,13,4.9,2,2,5,5
-Choi Hung,12,Kwai Hing,23,11,4.9,2,13,4.9,2,2,5,5
-Choi Hung,12,Tai Wo Hau,24,11,4.9,2,13,4.9,2,2,5,5
-Choi Hung,12,Tsuen Wan,25,11,4.9,2,13,4.9,2,2,5,5
+Choi Hung,12,Lai King,21,11,4.9,2.2,13,4.9,2.2,2.2,5,5
+Choi Hung,12,Kwai Fong,22,11,4.9,2.2,13,4.9,2.2,2.2,5,5
+Choi Hung,12,Kwai Hing,23,11,4.9,2.2,13,4.9,2.2,2.2,5,5
+Choi Hung,12,Tai Wo Hau,24,11,4.9,2.2,13,4.9,2.2,2.2,5,5
+Choi Hung,12,Tsuen Wan,25,11,4.9,2.2,13,4.9,2.2,2.2,5,5
 Kowloon Bay,13,Ngau Tau Kok,14,4.9,3.2,2,5,3.2,2,2,3.5,3.5
 Kowloon Bay,13,Kwun Tong,15,4.9,3.2,2,5,3.2,2,2,3.5,3.5
 Kowloon Bay,13,Prince Edward,16,9.2,4.4,2,10.5,4.4,2,2,4.5,4.5
 Kowloon Bay,13,Sham Shui Po,17,9.2,4.4,2,10.5,4.4,2,2,4.5,4.5
 Kowloon Bay,13,Cheung Sha Wan,18,9.2,4.4,2,10.5,4.4,2,2,4.5,4.5
 Kowloon Bay,13,Lai Chi Kok,19,9.2,4.4,2,10.5,4.4,2,2,4.5,4.5
-Kowloon Bay,13,Mei Foo,20,11,4.9,2,13,4.9,2,2,5,5
-Kowloon Bay,13,Lai King,21,11,4.9,2,13,4.9,2,2,5,5
-Kowloon Bay,13,Kwai Fong,22,11,4.9,2,13,4.9,2,2,5,5
-Kowloon Bay,13,Kwai Hing,23,11,4.9,2,13,4.9,2,2,5,5
-Kowloon Bay,13,Tai Wo Hau,24,11,4.9,2,13,4.9,2,2,5,5
-Kowloon Bay,13,Tsuen Wan,25,11,4.9,2,13,4.9,2,2,5,5
+Kowloon Bay,13,Mei Foo,20,11,4.9,2.2,13,4.9,2.2,2.2,5,5
+Kowloon Bay,13,Lai King,21,11,4.9,2.2,13,4.9,2.2,2.2,5,5
+Kowloon Bay,13,Kwai Fong,22,11,4.9,2.2,13,4.9,2.2,2.2,5,5
+Kowloon Bay,13,Kwai Hing,23,11,4.9,2.2,13,4.9,2.2,2.2,5,5
+Kowloon Bay,13,Tai Wo Hau,24,11,4.9,2.2,13,4.9,2.2,2.2,5,5
+Kowloon Bay,13,Tsuen Wan,25,11,4.9,2.2,13,4.9,2.2,2.2,5,5
 Ngau Tau Kok,14,Kwun Tong,15,4.9,3.2,2,5,3.2,2,2,3.5,3.5
 Ngau Tau Kok,14,Prince Edward,16,9.2,4.4,2,10.5,4.4,2,2,4.5,4.5
 Ngau Tau Kok,14,Sham Shui Po,17,9.2,4.4,2,10.5,4.4,2,2,4.5,4.5
 Ngau Tau Kok,14,Cheung Sha Wan,18,9.2,4.4,2,10.5,4.4,2,2,4.5,4.5
 Ngau Tau Kok,14,Lai Chi Kok,19,9.2,4.4,2,10.5,4.4,2,2,4.5,4.5
-Ngau Tau Kok,14,Mei Foo,20,11,4.9,2,13,4.9,2,2,5,5
-Ngau Tau Kok,14,Lai King,21,11,4.9,2,13,4.9,2,2,5,5
-Ngau Tau Kok,14,Kwai Fong,22,11,4.9,2,13,4.9,2,2,5,5
-Ngau Tau Kok,14,Kwai Hing,23,11,4.9,2,13,4.9,2,2,5,5
-Ngau Tau Kok,14,Tai Wo Hau,24,11,4.9,2,13,4.9,2,2,5,5
-Ngau Tau Kok,14,Tsuen Wan,25,11,4.9,2,13,4.9,2,2,5,5
+Ngau Tau Kok,14,Mei Foo,20,11,4.9,2.2,13,4.9,2.2,2.2,5,5
+Ngau Tau Kok,14,Lai King,21,11,4.9,2.2,13,4.9,2.2,2.2,5,5
+Ngau Tau Kok,14,Kwai Fong,22,11,4.9,2.2,13,4.9,2.2,2.2,5,5
+Ngau Tau Kok,14,Kwai Hing,23,11,4.9,2.2,13,4.9,2.2,2.2,5,5
+Ngau Tau Kok,14,Tai Wo Hau,24,11,4.9,2.2,13,4.9,2.2,2.2,5,5
+Ngau Tau Kok,14,Tsuen Wan,25,11,4.9,2.2,13,4.9,2.2,2.2,5,5
 Kwun Tong,15,Prince Edward,16,9.2,4.4,2,10.5,4.4,2,2,4.5,4.5
 Kwun Tong,15,Sham Shui Po,17,9.2,4.4,2,10.5,4.4,2,2,4.5,4.5
 Kwun Tong,15,Cheung Sha Wan,18,9.2,4.4,2,10.5,4.4,2,2,4.5,4.5
 Kwun Tong,15,Lai Chi Kok,19,9.2,4.4,2,10.5,4.4,2,2,4.5,4.5
-Kwun Tong,15,Mei Foo,20,11,4.9,2,13,4.9,2,2,5,5
-Kwun Tong,15,Lai King,21,11,4.9,2,13,4.9,2,2,5,5
-Kwun Tong,15,Kwai Fong,22,11,4.9,2,13,4.9,2,2,5,5
-Kwun Tong,15,Kwai Hing,23,11,4.9,2,13,4.9,2,2,5,5
-Kwun Tong,15,Tai Wo Hau,24,11,4.9,2,13,4.9,2,2,5,5
-Kwun Tong,15,Tsuen Wan,25,11,4.9,2,13,4.9,2,2,5,5
+Kwun Tong,15,Mei Foo,20,11,4.9,2.2,13,4.9,2.2,2.2,5,5
+Kwun Tong,15,Lai King,21,11,4.9,2.2,13,4.9,2.2,2.2,5,5
+Kwun Tong,15,Kwai Fong,22,11,4.9,2.2,13,4.9,2.2,2.2,5,5
+Kwun Tong,15,Kwai Hing,23,11,4.9,2.2,13,4.9,2.2,2.2,5,5
+Kwun Tong,15,Tai Wo Hau,24,11,4.9,2.2,13,4.9,2.2,2.2,5,5
+Kwun Tong,15,Tsuen Wan,25,11,4.9,2.2,13,4.9,2.2,2.2,5,5
 Prince Edward,16,Sham Shui Po,17,4.9,3.2,2,5,3.2,2,2,3.5,3.5
 Prince Edward,16,Cheung Sha Wan,18,4.9,3.2,2,5,3.2,2,2,3.5,3.5
 Prince Edward,16,Lai Chi Kok,19,5.9,3.2,2,6,3.2,2,2,3.5,3.5

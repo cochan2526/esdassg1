@@ -1,6 +1,7 @@
 __pycache__/
 *.pyc
 .env
+*.bak
 .DS_Store
 .venv/
 password.txt
