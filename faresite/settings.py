@@ -28,8 +28,7 @@ DEBUG = True
 # DEBUG = False
 
 # ALLOWED_HOSTS = []
-ALLOWED_HOSTS = [ "nitorishuuichi.pyphonanyware.com" , "localhost" ]
-
+ALLOWED_HOSTS = [ "nitorishuuichi.pythonanywhere.com" , "localhost" ]
 
 # Application definition
 
