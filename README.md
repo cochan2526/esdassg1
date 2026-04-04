@@ -1,16 +1,24 @@
 # Enterprise Software Development 2025 - 2026 Assignment 1  .md
 
+## Deployment
+Application also deployed to pythonanywhere.com at the following address:
+https://nitorishuuichi.pythonanywhere.com/
+
+## Reference
 ## user authentication System using django
 On 2026-03-22
 referencing https://www.geeksforgeeks.org/python/user-authentication-system-using-django/
 logout referencing https://docs.djangoproject.com/en/6.0/topics/auth/default/
 
+## for use of "import *"
+referencing https://stackoverflow.com/a/6761908
+
+## get checkbox values in django application as a list
+referencing https://stackoverflow.com/questions/48735726/how-to-get-checkbox-values-in-django-application
+
 ### helper.py
 sub functions used in views.py
 to make views.py more clear and easy to read
-
-
-
 
 ## Data used in this project is obtained from data.gov.hk,
 ## provided by MTR Corporation Limited of Hong Kong
