@@ -37,7 +37,9 @@ class BarrFacTest ( TestCase ) :
             )
 
 # view test
-
+#
+# Test if facility is displayed
+#
     def test_barrfac_page_displayed ( self ) :
         client = Client ( )
         response = self.client.get ( "/barrfac/1/" )
@@ -59,18 +61,33 @@ class UserRegTest ( TestCase ) :
         self.assertEqual ( self.userT1.username , "userT1" )
 
 # view test
-
+#
+# Test if "Guest" is displayed if not logged on
+#
     def test_hongpage ( self ) :
         client = Client ( )
         response = self.client.get ( "" )
         self.assertContains ( response , "Hello Guest !" )
 
+#
+# Test if username is displayed if logged on
+#
     def test_logon ( self ) :
         client = Client ( )
         response = self.client.force_login ( self.userT1 )
         response = self.client.get ( "" )
         self.assertContains ( response , "Hello userT1 !" )
 
+#
+# test logon through logon page
+#
+# follow redirect to avoid test fail for 302 error
+# https://stackoverflow.com/questions/17352314/django-test-client-post-returns-302-despite-error-on-views-post
+#
+    def test_logginon ( self ) :
+        client = Client ( )
+        response = self.client.post ( "/logging_on/" , { "username" : "userT1" , "password" : "pwdT1" } , follow = True )
+        self.assertContains ( response , "Hello userT1 !" )
 
 class ShowFareTest ( TestCase ) :
     @classmethod
@@ -150,6 +167,9 @@ class ShowFareTest ( TestCase ) :
 
 # view test
 
+#
+# first test to ensure the barrier free facilities is there and displayed.
+#
     def test_barrfac_page_displayed ( self ) :
         client = Client ( )
         response = self.client.get ( "/barrfac/1/" )
@@ -162,7 +182,10 @@ class ShowFareTest ( TestCase ) :
         self.assertContains ( response , "Barrier free facilities in the Tsim Sha Tsui station" )
         self.assertContains ( response , "Accessible Toilets (Unpaid Area)" )
 
-
+#
+# test if facilities in user preference will be shown
+# together with fare when logged on
+#
     def test_showfare ( self ) :
         client = Client ( )
         response = self.client.force_login ( self.userT1 )
