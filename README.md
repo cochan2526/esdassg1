@@ -1,6 +1,7 @@
 # Enterprise Software Development 2025 - 2026 Assignment 1  .md
 
 ## Install and run
+
 #### by extracting from zip file, or by cloning from GitHub.com as the following command ( if git is installed ) :-
 git clone https://github.com/cochan2526/esdassg1.git
 application is stored in the directory "esdassg1"
@@ -33,13 +34,27 @@ Application is also deployed to pythonanywhere.com at the following address:
 
 ## Usage of the application
 When the website is accessed, user can search the fare between stations by selecting
-the departing and destination station and click on "Get fare" button.
+the departing and destination station and click on "Get fare" button.  Users can then
+click on the name of station to get the list of barrier free facilities available in
+the station.
 
+User can also register by simply provide a username and password, after register,
+user can access the account page and select their preferred departing and destination
+stations, and also the barrier free facilities in concern, by doing so, everytime
+they login, their prefered stations will be automatically selected in homepage,
+and the barrier free facilities in concern will be automatically filtered out and
+displayed if it is available in the departing and destination stations of the 
+journey user selected, in the fare displaying page, without the need of entering
+the barrier free facilities listing page.
 
-Fare
+### Correctness of data
+As the data is real and updated, the result can be also check in the websit of the
+MTR as the following address.
+
+#### MTR Fare enquiry page
 "https://www.mtr.com.hk/en/customer/tickets/index.php"
 
-Barrier free facilities
+#### MTR Barrier free facilities
 "https://www.mtr.com.hk/en/customer/services/free_search.php?query_type=search&station=1&disable_search=#searchResult"
 
 ## Reference
@@ -76,6 +91,10 @@ which is the first 2 lines ( Kwun Tong Line and Tsuen Wan Line ) , 25 stations
 in total, with station number ranged from 1 to 25. I further remove records of
 same stations and half of the records as the fare is the same for opposite
 direction, and final number of records is down to 25*24/2 = 300.
+
+For the barrier free facilities dataset, in order to trim down the size of 
+data, facilities that are not available is removed.
+
 
 Below is extract of T & C of using data from data.gov.hk
 
