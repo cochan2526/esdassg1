@@ -161,8 +161,8 @@ def getFare ( source_station , dest_station ) :
 #
 #    filter station facilities by preference
 #    Input : dictionary of station facilities
-#            list of perference category
-#            list of perference facilities
+#            list of perference category ( Category_Id )
+#            list of perference facilities ( Item_Code )
 #    return : filtered dictionary of station facilities
 #
 def perf_station_facilities ( facilities , pref_category , pref_facility ) :
@@ -172,6 +172,7 @@ def perf_station_facilities ( facilities , pref_category , pref_facility ) :
 
     #
     #    convert the category to category id
+    #    and check if selected in user preference.
     #
     for category in facilities :
         category_set = barrcat.filter ( Category_En = category )
@@ -182,10 +183,15 @@ def perf_station_facilities ( facilities , pref_category , pref_facility ) :
             is_pref_category = False
         for item in facilities [ category ] :
             if is_pref_category :
+                #
+                #    If the category is selected in user preference,
+                #    all facilities will be selected automatically.
+                #
                 is_pref_facility = True
             else :
                 #
                 #    convert the facility to item_code
+                #    and check if the facility is selected in user preference.
                 #
                 facility_set = barrcat.filter ( Facility_En = item [ "Facility_En" ] )
                 facility_item_code = facility_set[ 0 ].Item_Code
@@ -272,7 +278,7 @@ def logging_on_user ( request ) :
 def showing_homepage ( request ) :
 
     username = userORguest ( request )
-    stations = Station.objects.all ( )
+    stations = Station.objects.all ( ).order_by ( "Station_ID" )
 
     user = request.user
     userPref = getUserPref ( request )
@@ -319,7 +325,7 @@ def showing_fare ( request ) :
         #
         if ( username != "Guest" ) :
             source_station_facilities = station_facilities ( source_station_id )
-            dest_station_facilities = station_facilities ( dest_station_id )
+            dest_station_facilities   = station_facilities ( dest_station_id )
             source_pref_facilities = perf_station_facilities ( source_station_facilities , userPref [ "Category" ] , userPref [ "Facility" ] )
             dest_pref_facilities   = perf_station_facilities ( dest_station_facilities   , userPref [ "Category" ] , userPref [ "Facility" ] )
 
@@ -367,7 +373,7 @@ def diplay_barrfac ( request , station_id ) :
 def show_account ( request ) :
     username = request.user.username ;
 
-    stations = Station.objects.all ( )
+    stations = Station.objects.all ( ).order_by ( "Station_ID" )
 
     userPref = getUserPref ( request )
 
