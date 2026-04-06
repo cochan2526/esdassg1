@@ -2,9 +2,11 @@
 
 ## Install and run
 
-#### by extracting from zip file, or by cloning from GitHub.com as the following command ( if git is installed ) :-
+#### Preparation
+Please decompress and extract from the zip file submitted, or by cloning from
+GitHub.com by the following command ( if git is installed ) :-
 git clone https://github.com/cochan2526/esdassg1.git
-application is stored in the directory "esdassg1"
+Application is stored in the directory "esdassg1"
 By changing the directory into the "esdassg1" , the file "manage.py" can be found.
 
 #### Create the environment
