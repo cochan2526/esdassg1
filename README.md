@@ -28,7 +28,7 @@ Application can now be run by the following command :-
 python manage.py runserver [any port number free for use]
 
 #### Accessing the application
-And now the program is now can be accessed by browser at the address "localhost[:port number entered]"
+And now the program is now can be accessed by any browser at the address "localhost[:port number entered]"
 
 ## Deployment
 Application is also deployed to pythonanywhere.com at the following address:
